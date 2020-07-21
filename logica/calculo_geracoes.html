@@ -1,0 +1,28 @@
+<meta charset="UTF-8">
+
+<h1>Cálculo da média de gerações de filhos no Brasil desde 1500</h1>
+
+<p>Considerando que a média em que as pessoas têm filhos é de 28 anos, temos que, no Brasil:</p>
+
+<script>
+    function pulaLinha(){
+
+        document.write("<br><br>");
+
+    }
+
+    function mostra(frase){
+
+        document.write(frase);
+        pulaLinha();
+
+    }
+
+    var anoAtual = 2020;
+    var anosDescoberta = (anoAtual - 1500);
+    var geracoes = (anosDescoberta / 28);
+
+    mostra("Ao considerar o ano atual, passaram-se " + anosDescoberta + " anos desde 1500.");
+    mostra("Assim, podemos concluir que, em média, temos um total de " + Math.round(geracoes) + " em nosso país desde a chegada dos portugueses.");
+    
+</script>

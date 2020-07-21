@@ -1,0 +1,28 @@
+<meta charset="UTF-8">
+<script>
+    function pulaLinha() {
+
+        document.write("<br><br>");
+    }
+
+    // a função mostra encapsula a instrução de imprimir o texto na tela de forma dinamica ao receber o parâmetro "frase"
+    // ela contém mais de uma instrução pois ordena que a açào da função pulaLinha seja invocada junto da impressão do texto
+    function mostra(frase) {
+        
+        document.write(frase);
+        pulaLinha();
+    }
+
+    var titulo = "Bem-vindo ao meu programa!";
+
+    document.write("<h1>" + titulo + "</h1>");
+
+    // pulaLinha(); -> ambos substituidos em todos os document.write
+    // pulaLinha();
+
+    mostra("Vocês não sabem o que tive que aprender para fazer isso!");
+
+    mostra("Contudo, assistindo os vídeos e estudando ...");
+
+    mostra("Eu vou mais longe!");
+</script>
