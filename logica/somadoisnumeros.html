@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soma dois números </title>
+</head>
+
+<script>
+
+    function pulaLinha() {
+
+        document.write("<br><br>");
+
+    }
+
+    function mostra(frase) {
+        
+        document.write(frase);
+        pulaLinha();
+
+    }
+
+    function somaDoisNumeros(num1, num2) {
+
+        var soma = num1 + num2;
+        //return soma; 
+        mostra("A soma destes dois números é: " + soma + ".");
+    }
+
+    /*var soma = somaDoisNumeros(1938243, 586308479);
+
+    //mostra(soma);  
+
+    / --> Esta parte comentada demonstra que o uso da funcao return pode ser benéfico pois:
+    1. Possibilita que outros textos sejam exibidos de forma diferente daquela fixada pela função mostra; 
+    2. Dado que a variável é uma ferramenta usada pela função com objetivo de executar uma ação específica - cálculo de dois números - se não houver uma maneira de se retornar o valor calculado, a página fica em branco. Por isso, o uso da função return.
+
+    
+    */
+
+    somaDoisNumeros(1938243, 586308479);
+
+</script>
+
+</html>

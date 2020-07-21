@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retorno de valor específico</title>
+</head>
+    <script>
+
+        function pulaLinha() {
+
+            document.write("<br>");
+
+        }
+
+        function mostra(frase) {
+
+            document.write(frase);
+            pulaLinha();
+        
+        }
+
+        function funcaoQualquer() {
+
+            var n1 = 10;
+            var n2 = 20;
+            var n3 = 30;
+    
+            return n1 + n2 - 10;
+
+        }
+
+        var retorno = funcaoQualquer();
+        mostra("O valor específico da função é: " + retorno + "."); 
+
+
+
+
+
+    </script>
+        
+</html>

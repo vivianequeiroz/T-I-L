@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soma de IMCs</title>
+</head>
+    <script>
+
+        function pulaLinha() {
+
+            document.write("<br><br>");
+
+        }                        
+
+        function mostra(frase) {
+
+            document.write(frase);
+            pulaLinha();
+
+        }
+
+        function calculaImc(altura, peso) {
+
+            return peso / (altura * altura);
+
+        }
+
+        mostra("Aqui, existem duas formas possíveis de se inserir o valor do IMC.")
+        mostra("Além disso, a função pode ter como return diretamente a expressão que realizará o cálculo, sem necessidade de criar uma variável dentro dela.");
+        mostra("Na primeira forma, as variáveis podem ser descritas uma a uma antes de uma variável para o cálculo do valor total.");
+
+        var imcPai = calculaImc(1.73, 73);
+        var imacAmigo = calculaImc(1.68, 58);
+        var imcTotal = imcPai + imacAmigo;
+
+        mostra("A soma dos IMCs é: " + Math.round(imcTotal) + ".");
+
+        
+        mostra("Na segunda, podemos criar uma única variável do com o cálculo do IMC total.");
+
+        var imcTotal = calculaImc(1.73, 73) + calculaImc(1.68, 58);
+        mostra("A soma dos IMCs é: " + Math.round(imcTotal) + ".");
+
+        // -> quando um texto é concatenado com uma função, temos que a concatenação é feita com o seu - - retorno - -, e não com a função em si.
+
+    </script>
+</html>
