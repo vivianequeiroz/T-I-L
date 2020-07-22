@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Futebol</title>
+    <p>O objetivo desse exercício é verificar se o time está melhor ou pior em relação a um referencial de pontos.</p>
+    <p>Ao inspecionar o arquivo é possível ver a presença de condições que determinam se o time está melhor, igual ou pior que o ano passado e quantidade de pontos exata da diferença.</p>
+    <br>
+</head>
+    <script> 
+
+        function pulaLinha() {
+
+            document.write("<br><br>");
+
+        }
+
+        function mostra(frase) {
+
+            document.write(frase);
+            pulaLinha();
+
+        }
+
+        var vitorias = parseInt(prompt("Insira o número de vitórias: "));
+        var empates = parseInt(prompt("Agora, insira o número de empates: "));
+        var pontos = vitorias * 3 + empates;
+
+        //1. A função prompt() sempre lê o conteúdo como texto. Por isso, pode há concatenação e o resultado esperado por não aparecer;
+        //2. EXCESSÕES: com multiplicação e divisão, o JS sempre converte o texto para número;
+        //3. Para soma e subtração, deve-se sempre inserir s função parseInt() a qual receberá, nesse exemplo, a função prompt e converterá seus dados de texto para número. 
+
+        mostra("A quantidade de pontos do se time é: " + pontos + "!");
+
+        if(pontos > 28) {
+            
+            var diferencaMaior = pontos - 28;
+            mostra("Essa quantidade de pontos está <strong>maior</strong> em " + diferencaMaior +  " pontos em relação ao ano passado :D");
+        }
+        
+        if(pontos < 28) {
+            var diferencaMenor = (pontos - 28) * (-1);
+            mostra("Essa quantidade de pontos está <strong>menor</strong> em " + diferencaMenor + " pontos em relação ao ano passado :(");
+        }
+
+        if(pontos == 28) {
+
+            mostra("Essa quantidade de pontos  está <strong>igual</strong> em relação ao ano passado ;)");
+            
+        }
+
+    </script>
+</html>
