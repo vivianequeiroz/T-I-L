@@ -3,7 +3,7 @@
 #include <locale.h>
 
 
-int main ()
+int batata ()
 {
     setlocale(LC_ALL, "Portuguese");
     
@@ -26,5 +26,7 @@ int main ()
     
     ageWeeks = ageYear * 52;
     printf("\nd) A sua idade é igual a %i semanas.\n\n", ageWeeks);
+    
+    return 0;
     
 }

@@ -4,7 +4,7 @@
 #include <unistd.h>
 
 
-int batata ()
+int batataa ()
 
     {
         
@@ -45,8 +45,7 @@ int batata ()
             printf(" Status de aprovação: reprovado.\n\n");
         }
         
-        return 0;
-    
+        return (0);
     }
 
 
