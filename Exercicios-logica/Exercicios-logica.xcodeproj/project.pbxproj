@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		313CEDC52509968900A0BD74 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 313CEDC42509968900A0BD74 /* main.c */; };
+		313CEDCE2509A16400A0BD74 /* aula5.c in Sources */ = {isa = PBXBuildFile; fileRef = 313CEDCD2509A16400A0BD74 /* aula5.c */; };
+		313CEDD02509A23C00A0BD74 /* aula5-exe2.c in Sources */ = {isa = PBXBuildFile; fileRef = 313CEDCF2509A23C00A0BD74 /* aula5-exe2.c */; };
 		314B0BB22503CFBC00595E16 /* exe-repet-1.c in Sources */ = {isa = PBXBuildFile; fileRef = 314B0BB12503CFBC00595E16 /* exe-repet-1.c */; };
 		314B0BB52503D0EC00595E16 /* exe-repet-2.c in Sources */ = {isa = PBXBuildFile; fileRef = 314B0BB42503D0EC00595E16 /* exe-repet-2.c */; };
 		314B0BB72503D11200595E16 /* exe-repet-3.c in Sources */ = {isa = PBXBuildFile; fileRef = 314B0BB62503D11200595E16 /* exe-repet-3.c */; };
@@ -23,6 +26,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		313CEDC02509968800A0BD74 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		31D7FB2D24F1974A0014A2B9 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -35,6 +47,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		313CEDC22509968800A0BD74 /* aula5-c */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "aula5-c"; sourceTree = BUILT_PRODUCTS_DIR; };
+		313CEDC42509968900A0BD74 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		313CEDCD2509A16400A0BD74 /* aula5.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = aula5.c; sourceTree = "<group>"; };
+		313CEDCF2509A23C00A0BD74 /* aula5-exe2.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = "aula5-exe2.c"; sourceTree = "<group>"; };
 		314B0BB12503CFBC00595E16 /* exe-repet-1.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = "exe-repet-1.c"; sourceTree = "<group>"; };
 		314B0BB42503D0EC00595E16 /* exe-repet-2.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = "exe-repet-2.c"; sourceTree = "<group>"; };
 		314B0BB62503D11200595E16 /* exe-repet-3.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = "exe-repet-3.c"; sourceTree = "<group>"; };
@@ -53,6 +69,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		313CEDBF2509968800A0BD74 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		31D7FB2C24F1974A0014A2B9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -63,6 +86,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		313CEDC32509968800A0BD74 /* aula5-c */ = {
+			isa = PBXGroup;
+			children = (
+				313CEDC42509968900A0BD74 /* main.c */,
+			);
+			path = "aula5-c";
+			sourceTree = "<group>";
+		};
 		319CB59225005039007232B8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				31D7FB3124F1974A0014A2B9 /* Exercicios-logica */,
+				313CEDC32509968800A0BD74 /* aula5-c */,
 				31D7FB3024F1974A0014A2B9 /* Products */,
 				319CB59225005039007232B8 /* Frameworks */,
 			);
@@ -84,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				31D7FB2F24F1974A0014A2B9 /* Exercicios-logica */,
+				313CEDC22509968800A0BD74 /* aula5-c */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -104,6 +137,8 @@
 				314B0BB42503D0EC00595E16 /* exe-repet-2.c */,
 				314B0BB62503D11200595E16 /* exe-repet-3.c */,
 				314B0BB82503D12C00595E16 /* exe-repet-4.c */,
+				313CEDCD2509A16400A0BD74 /* aula5.c */,
+				313CEDCF2509A23C00A0BD74 /* aula5-exe2.c */,
 			);
 			path = "Exercicios-logica";
 			sourceTree = "<group>";
@@ -111,6 +146,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		313CEDC12509968800A0BD74 /* aula5-c */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 313CEDC62509968900A0BD74 /* Build configuration list for PBXNativeTarget "aula5-c" */;
+			buildPhases = (
+				313CEDBE2509968800A0BD74 /* Sources */,
+				313CEDBF2509968800A0BD74 /* Frameworks */,
+				313CEDC02509968800A0BD74 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "aula5-c";
+			productName = "aula5-c";
+			productReference = 313CEDC22509968800A0BD74 /* aula5-c */;
+			productType = "com.apple.product-type.tool";
+		};
 		31D7FB2E24F1974A0014A2B9 /* Exercicios-logica */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 31D7FB3624F1974A0014A2B9 /* Build configuration list for PBXNativeTarget "Exercicios-logica" */;
@@ -134,9 +186,12 @@
 		31D7FB2724F1974A0014A2B9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1160;
+				LastUpgradeCheck = 1170;
 				ORGANIZATIONNAME = VivianeQueirozTADS;
 				TargetAttributes = {
+					313CEDC12509968800A0BD74 = {
+						CreatedOnToolsVersion = 11.7;
+					};
 					31D7FB2E24F1974A0014A2B9 = {
 						CreatedOnToolsVersion = 11.6;
 					};
@@ -156,21 +211,32 @@
 			projectRoot = "";
 			targets = (
 				31D7FB2E24F1974A0014A2B9 /* Exercicios-logica */,
+				313CEDC12509968800A0BD74 /* aula5-c */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		313CEDBE2509968800A0BD74 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				313CEDC52509968900A0BD74 /* main.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		31D7FB2B24F1974A0014A2B9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				316E7BD324F1F057007BB5B0 /* exe-5.c in Sources */,
+				313CEDD02509A23C00A0BD74 /* aula5-exe2.c in Sources */,
 				316E7BCA24F1A050007BB5B0 /* exe-2.c in Sources */,
 				316E7BD024F1EC43007BB5B0 /* exe-4.c in Sources */,
 				314B0BB92503D12C00595E16 /* exe-repet-4.c in Sources */,
 				31D2AD5F24F9FFB000FB3721 /* test.c in Sources */,
 				316E7BD624F1FC76007BB5B0 /* exe-6.c in Sources */,
+				313CEDCE2509A16400A0BD74 /* aula5.c in Sources */,
 				316E7BC724F19A2A007BB5B0 /* exe-1.c in Sources */,
 				316E7BCD24F1ACCB007BB5B0 /* exe-3.c in Sources */,
 				314B0BB52503D0EC00595E16 /* exe-repet-2.c in Sources */,
@@ -184,6 +250,22 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		313CEDC72509968900A0BD74 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		313CEDC82509968900A0BD74 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		31D7FB3424F1974A0014A2B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -296,6 +378,7 @@
 		31D7FB3724F1974A0014A2B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -304,6 +387,7 @@
 		31D7FB3824F1974A0014A2B9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -312,6 +396,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		313CEDC62509968900A0BD74 /* Build configuration list for PBXNativeTarget "aula5-c" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				313CEDC72509968900A0BD74 /* Debug */,
+				313CEDC82509968900A0BD74 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		31D7FB2A24F1974A0014A2B9 /* Build configuration list for PBXProject "Exercicios-logica" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

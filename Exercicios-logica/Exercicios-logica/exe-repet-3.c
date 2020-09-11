@@ -1,27 +1,27 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <locale.h>
 
-
-int main()
-
+int mainex ()
 {
-    setlocale(LC_ALL, "Portuguese");
+     int cont;
+     float base, altura, area;
+     
+     cont=0; base=0; altura=0; area=0;
+     while ( cont < 3 )
+     {
+     printf ( "\n Base :" ); scanf("%f", &base);
+     printf ( "\n Altura :" ); scanf("%f", &altura);
+     if ( base==0 || altura==0 )
+     printf ("\nImpossível calcular área do triângulo!");
+     else
+     {
+     area = base*altura/2;
+     printf ( "\n Área =%5.2f" , area );
+ }
+ cont++;
+ }
+ printf ("\n");
     
-    int numberInteger, count, result;
-    
-    printf("Digite aqui o número inteiro: \n");
-    scanf("%i", &numberInteger);
-    
-    count = 1;
-    
-    do {
-        result = count * numberInteger;
-        printf("%i vezes %i é igual a %i \n", count, numberInteger, result);
-        count++;
-    } while (count < 11);
-    
-    
+    return(0);
+ 
 }
-
-
