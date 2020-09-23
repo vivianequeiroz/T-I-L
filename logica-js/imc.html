@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <script>
+
+        function pulaLiha() {
+            document.write("<br>");
+            document.write("<br>");
+        }
+
+        function mostra(frase) {
+            document.write(frase);
+            pulaLiha();
+        }
+
+        function calculaImc (peso, altura) {
+            var imc = peso/(altura*altura);
+            //mostra("O IMC calculado é " + Math.round(imc));
+            return imc;
+        }
+
+        var imcPessoa = calculaImc(54, 1.68);
+        var imcAmigo = calculaImc(67, 1.68);
+
+        mostra (Math.round(imcPessoa));
+        mostra (Math.round(imcAmigo));
+
+        var somaImcs = imcPessoa + imcAmigo; 
+
+        document.write("A soma dos IMCs é " + Math.round(somaImcs));
+
+        //var imcPessoa = pesoPessoa/(alturaPessoa * alturaPessoa);
+
+        //mostra("Pessoa tem IMC igual a " + Math.round(imcPessoa));
+
+    </script>
+</body>
+</html>
