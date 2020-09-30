@@ -1,4 +1,4 @@
-# CSS Básico - Instrodução
+# CSS Básico - Introdução
 
 <h1 align="center">
     <img src = "https://www.tutorialrepublic.com/lib/images/css-illustration.png" alt = "CSS 3 escrito em preto e ao lado direito desenho de um notebook com código css na tela" text-align="center"  width="500px">
