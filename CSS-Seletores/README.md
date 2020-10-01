@@ -1,4 +1,4 @@
-# CSS Básico - Introdução
+# CSS Básico - Seletores
 
 <h1 align="center">
     <img src = "https://www.tutorialrepublic.com/lib/images/css-illustration.png" alt = "CSS 3 escrito em preto e ao lado direito desenho de um notebook com código css na tela" text-align="center"  width="500px">
@@ -6,7 +6,8 @@
 
 > O CSS (Cascading Style Sheets) dá estilo à formatação de uma página da web ao se comunicar com os elementos do arquivo HTML 
 
-# Introdução
+# Seletores
+
 ## Formatação
     
     p (seletor) {
@@ -17,11 +18,11 @@
 
 <strong>color + font-size</strong> são as <em>propriedades</em>, que recebem valores após os dois pontos 
 <br><br>
-
+</p>
 
 ## Como conectar ao arquivo HTML:
 
-
+<p>
 Além do Inline Styles (menos recomendável pois pseudo-elementos e classes não são afetados), existem outra maneira de se conectar um arquivo CSS ao HTML. 
 
 > Tag < link > 
@@ -36,7 +37,7 @@ A tag utilizada é:
 
         <link rel="stylesheet" href="arquivo.css">
 <br>
-
+</p>
 
 #### Regra @import 
 
