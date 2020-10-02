@@ -1,0 +1,57 @@
+header {
+    width: 800px;
+    height: 60px;
+    padding: 20px 0;
+    background: #6b35b3;
+    margin-bottom: 20px;
+}
+
+h1, p {
+    text-align: center;
+    color: #fff;
+    font-size: 24px;
+    font-family: Arial;
+    text-transform: uppercase;
+    font-weight: normal; 
+}
+
+footer {
+    width: 800px;
+    height: 60px;
+    padding: 20px 0;
+    background: #6b35b3;
+    clear: both; /*impede que o elemento flutue*/
+}
+
+article {
+    width: 580px; 
+    height: 300px; 
+    background: #222;
+    float: left; 
+}
+
+aside {
+    width: 200px;
+    height: 300px;
+    background: #ccc;
+    float: left;
+    margin-left: 20px;
+}
+
+.container {
+    width: 800px; /*para a div não ocupar toda a largura da tela*/
+    margin: 0 auto;
+    /* background: blue; */
+}
+
+.conteudo {
+    width: 800px;
+    /* background: green; */
+    overflow: auto;
+    margin-bottom: 20px;
+    /*padding: 20px;*/
+}
+
+/* descomentar para visualizar as divs */
+
+/* utilizar overflow auto na caixa de elementos flutuantes */
