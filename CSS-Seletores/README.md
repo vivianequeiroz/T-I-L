@@ -27,12 +27,6 @@ Exemplo:
     
 <br><br>
 
-## 
-
-<br><br>
-
-## 
-<br><br>
 
 ## Elemento
 
