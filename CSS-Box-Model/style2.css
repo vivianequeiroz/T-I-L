@@ -18,7 +18,7 @@ h1, p {
 footer {
     width: 800px;
     height: 60px;
-    padding: 20px 0;
+    padding: 20px;
     background: #6b35b3;
     clear: both; /*impede que o elemento flutue*/
 }
@@ -28,6 +28,7 @@ article {
     height: 300px; 
     background: #222;
     float: left; 
+    position: relative;
 }
 
 aside {
