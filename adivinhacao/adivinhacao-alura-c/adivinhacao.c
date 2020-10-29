@@ -18,12 +18,37 @@ int main() {
     int attempts = 1;
 
     double points = 1000;
-    //i representa o --contador--
-    while(1){
-         printf("Tentativa %i\n", attempts);
+
+    int i;
+
+    int hit = 0;
+    int level;
+
+    printf("Qual o nível de dificuldade?");
+    printf("\n~Apenas lembrando que o número é inteiro e possui dois digítos, ok? ;)\n");
+    printf("\n(1) Fácil - 20 tentativas,\n(2) Média - 15 tentativas\n(3) Difícil - 6 tentativas\n\n");
+    printf("Escolha: \n\n");
+    scanf("%i", &level);
+
+    int numberAttempts;
+
+    switch (level)  {
+    case 1: 
+          numberAttempts = 20;
+          break;
+     case 2: 
+          numberAttempts = 15;
+          break;
+    default:
+          numberAttempts = 6;
+          break;
+    }
+
+    for (i = 0; i < numberAttempts; i++) {
+         printf("\n**** Tentativa %i  ****\n", attempts);
          printf("Qual é o seu chute? ");
          scanf ("%i", &guess);
-         printf("Seu chute foi %i \n", attempts);
+         printf("Seu chute foi %i \n\n", guess);
     
 
     if (guess < 0){
@@ -39,9 +64,9 @@ int main() {
          break;
           
     } else if (bigger) {
-             printf("Poxa, o número que você digitou é maior que o número secreto. \nContinue tentando!\n");    
+             printf("Poxa, o número que você digitou é maior que o número secreto. :0 \nContinue tentando!\n");    
          } else {
-              printf("Poxa, o número que você digitou é menor que o número secreto. \nContinue tentando!\n");    
+              printf("Poxa, o número que você digitou é menor que o número secreto. :(\nContinue tentando!\n");    
          }
 
          attempts++;
@@ -54,9 +79,15 @@ int main() {
 
     }
   
-     printf("Voce acertou depois de %i tentativas!!!\n", attempts);
-     printf("Total de pontos: %.2f \n\n", points);
      printf("Fim de jogo! :3\n\n");
-      
+     
+     if(hit) {
+          printf("Você ganhou!");
+          printf("Você acertou depois de %i tentativas!!!\n", attempts);
+          printf("Total de pontos: %.2f \n\n", points);
+     } else {
+          printf("Você esgotou todas as chances de acertar :( \n");
+          printf("Mas, não fique trist! Apenas continue tentando! :D");
+     }
 
 }
