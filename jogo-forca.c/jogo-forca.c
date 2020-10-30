@@ -11,19 +11,34 @@ int main() {
      int hit = 0;
      int hanged = 0;
 
+     char guesses[26];
+     int attempts = 0;
 
      do {
+        for(int i =0; i < strlen(secretWord); i++) {
+            
+            int find = 0;
 
-          char guess;
-     printf("Digite uma letra: ");
-     scanf("%c", &guess);
+            for(int j = 0; j < attempts; j++) {
+                if(guesses[j] == secretWord[i]) {
+                    find = 1;
+                    break;
+                }
+            }
 
-         for(int i= 0; i < strlen(secretWord); i++) {
-             if(secretWord[i] == guess) {
-                 printf("A letra está na posição %i \n", i);
-             }
-         }
-         
-     } while (!hit  == 0 && !hanged == 0);
+        if(find) {
+            printf("%c", secretWord[i]);
+        } else {
+            printf(" _ ");
+        }
+    }
+    printf("\n");
 
+    char guess;
+    scanf(" %c", &guess);
+
+    guesses[attempts] = guess;
+    attempts++;
+
+    } while (!hit  && !hanged );
 }
