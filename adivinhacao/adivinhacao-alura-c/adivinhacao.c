@@ -87,7 +87,7 @@ int main() {
           printf("Total de pontos: %.2f \n\n", points);
      } else {
           printf("Você esgotou todas as chances de acertar :( \n");
-          printf("Mas, não fique trist! Apenas continue tentando! :D");
+          printf("Mas, não fique triste! Apenas continue tentando! :D");
      }
 
 }
