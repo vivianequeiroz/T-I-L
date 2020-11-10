@@ -17,4 +17,4 @@ int main() {
         printf("O valor de %d por %d e igual a: %d \n", multiplicator[i], i, result);
     }
 
-}
+} 
