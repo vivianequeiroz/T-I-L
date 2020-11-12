@@ -4,8 +4,8 @@
 int main() {
 
     FILE  *pointer_file; //1. Cria uma variável ponteiro para o arquivo
-    int number_1, number_2, number_3, number_4;
-    int sum; 
+    int i;
+
 
     pointer_file = fopen("RESPOSTA.txt", "a");//2. Abre o arquivo em modo de escrita e com modo de abertura a NÃO sobreescreve nada
 
@@ -17,26 +17,64 @@ int main() {
 
     } else { 
 
-        printf("Digite aqui o primeiro número inteiro: \n"); //4. Solicitando string ao usuário 
-        scanf("%d", &number_1);
+        struct different_numbers {
+            int number;
+        };
 
-        printf("Digite aqui o segundo número inteiro: \n"); //4. Solicitando string ao usuário 
-        scanf("%d", &number_2); 
+        struct different_numbers numbers[4];
 
-        printf("Digite aqui o terceiro número inteiro: \n"); //4. Solicitando string ao usuário 
-        scanf("%d", &number_3); 
+        
 
-        printf("Digite aqui o quarto número inteiro: \n"); //4. Solicitando string ao usuário 
-        scanf("%d", &number_4); 
+        for(i = 0; i < 4; i++) {
+            printf("Insira aqui o valor para a [%d] posicao: \n", i);
+            scanf("%d", &numbers[i].number);
+
+        }
+
+        for(i = 0; i < 4; i++) {
+            printf("O valor da posicao [%d] e igual a: %d \n", i, numbers[i].number);
+        }
+
+        int greater = 0;
+
+        for(i = 0; i < 4; i++) {
 
 
+            if(numbers[i].number > greater) {
 
-        fprintf(pointer_file, "%d \n", sum); // 5.Gravando a string no arquivo ==> fprintf(nome da variavel do ponteiro da arquivo, tipo +\n para pular linha, origem - variável) 
+                greater = numbers[i].number; 
+
+            }
+        }
+
+        struct result_number {
+            int result;
+        };
+
+        struct result_number sum;
+
+        sum.result = 0;
+
+        for(i = 0; i < 4; i++) {
+
+            if(numbers[i].number < greater) {
+                sum.result = sum.result + numbers[i].number;
+            }
+        }
+
+        
+
+
+        fprintf(pointer_file, "%d \n", sum.result); // 5.Gravando a soma no arquivo ==> fprintf(nome da variavel do ponteiro da arquivo, tipo +\n para pular linha, origem - variável) 
 
         fclose(pointer_file);
 
         printf("Dados gravados no arquivo com sucesso!");
 
     }
+    
+
+    
+    
 
 }
