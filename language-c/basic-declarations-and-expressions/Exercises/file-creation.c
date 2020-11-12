@@ -1,3 +1,7 @@
+//Fazer um algoritmo em Linguagem C, em que o usário deverá fornecer 4 números distintos inteiros. 
+//O programa deverá calcular e gravar em um arquivo chamado RESPOSTA.TXT o resultado da soma dos três menores. 
+//ATENÇÃO: Obrigatório a utilização de estruturas para gravar os dados em arquivo.
+
 #include <stdio.h>
 #include <string.h>
 
@@ -69,7 +73,7 @@ int main() {
 
         fclose(pointer_file);
 
-        printf("Dados gravados no arquivo com sucesso!");
+        printf("\nDados gravados no arquivo com sucesso!");
 
     }
     
