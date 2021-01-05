@@ -7,69 +7,115 @@ body, p, ul, li, dl, dd, dt {
 body {
     font-family: 'Kumbh Sans', sans-serif;
     line-height: 1.4em;
-    color:hsl(229, 23%, 23%);
+    color: hsl(229, 23%, 23%)
 }
 
 * {
     box-sizing: border-box; /*add border and padding into element*/
 }
 
-   
 .main-container {
-    background-color: rgb(229, 234, 238);
-    max-width: 1440px;
-    
+    display: flex;
+    background-color: hsl(185, 75%, 39%);
+    width: 100vw;
+    height: 100vh;
+    background-image: url(/profile-card-component/images/bg-pattern-top.svg);
+    background-image: url(/profile-card-component/images/bg-pattern-bottom.svg);
 }
 
 .general-data {
-    background-color:hsl(185, 75%, 39%);
     display: flex;
-    width: 978px;
-    height: 480px;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    margin: 200px 260px;
-    margin-bottom: 200px;
-    position: relative;
-    background-image: url(/profile-card-component/images/bg-pattern-top.svg);
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.438);
+    margin-left: 780px;
+    
 }
 
+.personal-data {
+    background-image: url(/profile-card-component/images/bg-pattern-card.svg);
+    width: 400px;
+    height: 150px;
+    border-radius: 20px 20px 0 0;
+}
 
 .personal-data img {
+    text-align: center;
+    top: 110px;
     border-radius: 50%;
-    margin-bottom: 20px;
+    position: relative;
+    margin-left: 150px;
 }
 
-.personal-data li {
-    display: inline-block;
-}
 
-.personal-data ul li.name{
+.network-info ul li.name{
     display: inline-block; 
+    margin-top: 90px;
     font-weight: bold;
     font-size: 18px;
+    width: 240px;
+    text-align:right;
 }
 
-.personal-data ul li.age{
+.network-info ul li.age{
     display: inline-block; 
-    font-weight: hsl(0, 0%, 59%)
+    color: hsl(0, 0%, 59%);
 }
 
-.personal-data ul li.city{
+.network-info ul li.city{
     display: block;
-    text-align: center;
     margin-top: 10px;
+    color: hsl(0, 0%, 59%);
+    text-align: center;
+    font-size: 16px;
 }
 
-.personal-data ul li::after, .personal-data ul li::before {
-    content: '';
-    display: table;
-    clear: both;
+.network-info {
+    background-color: #FFF;
+    height: 300px;
+    border-radius: 0 0 20px 20px;
+}
+
+.network-info dl dt {
+    font-weight: bold;
+    display: inline-block; 
+}
+
+.network-info dd { 
+    color: hsl(0, 0%, 59%);
 }
 
 
-.network-info ul li::after, .network-info ul li::before {
 
+.network-info dl.followers,
+.network-info dl.likes,
+.network-info dl.photos 
+{
+    float: inline-start;
+    height: 90px;
+    width: 133px;
+    text-align: center;
+}
+
+.network-info dl.followers dt,
+.network-info dl.likes dt,
+.network-info dl.photos dt {
+    margin-top: 70px;
+    margin-bottom: 5px;
+}
+
+.footer-container {
+    padding: 8px 20px;
+    background: hsl(229, 23%, 23%);
+
+}
+
+.footer-container p {
+    color: #FFF;
+    text-align: right;
+}
+
+.footer-container p a{
+    text-decoration: none;
+    color: #FFF;
+    font-weight:bold;
 }
