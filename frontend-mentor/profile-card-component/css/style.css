@@ -1,0 +1,75 @@
+body, p, ul, li, dl, dd, dt {
+    padding: 0px;
+    margin: 0px;
+}
+
+/* Defining the general font-family of the sites */
+body {
+    font-family: 'Kumbh Sans', sans-serif;
+    line-height: 1.4em;
+    color:hsl(229, 23%, 23%);
+}
+
+* {
+    box-sizing: border-box; /*add border and padding into element*/
+}
+
+   
+.main-container {
+    background-color: rgb(229, 234, 238);
+    max-width: 1440px;
+    
+}
+
+.general-data {
+    background-color:hsl(185, 75%, 39%);
+    display: flex;
+    width: 978px;
+    height: 480px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 200px 260px;
+    margin-bottom: 200px;
+    position: relative;
+    background-image: url(/profile-card-component/images/bg-pattern-top.svg);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.438);
+}
+
+
+.personal-data img {
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.personal-data li {
+    display: inline-block;
+}
+
+.personal-data ul li.name{
+    display: inline-block; 
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.personal-data ul li.age{
+    display: inline-block; 
+    font-weight: hsl(0, 0%, 59%)
+}
+
+.personal-data ul li.city{
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.personal-data ul li::after, .personal-data ul li::before {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+
+.network-info ul li::after, .network-info ul li::before {
+
+}
