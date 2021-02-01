@@ -8,6 +8,7 @@ body {
     font-family: 'Karla', sans-serif;
     font-size: 16px;
     line-height: 1.4em;
+    
 }
 
 * {
@@ -16,14 +17,109 @@ body {
 
 .main-container {
     background-color:   hsl(204, 43%, 93%);
-    width: 100%;
+    width: 100vw;
     height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.central-container {
-    display:flex;
-    width: 620px;
-    height: 460px;
+.community {
+    width: 700px;
+    height: 200px;
+    padding: 40px;
+    background-color: #FFF;
+    border-radius: 7px 7px 0 0;
 }
 
-/* centralize container! */
+h1 {
+    font-size: 32px;
+    color:  hsl(179, 62%, 43%);
+    margin-bottom: 1.5rem;
+}
+
+h2 {
+    font-size: 18px;
+    color: hsl(71, 58%, 48%);
+    margin-bottom: 1.5rem;
+}
+
+.community p {
+
+    font-size: 1rem;
+    color: hsl(218, 22%, 67%);
+}
+
+.community p:last-child {
+    margin-bottom: 1.5rem;
+}
+
+.subscription {
+    width: 350px;
+    height: 220px;
+    background-color:#43a7a4;
+    color:#FFF;
+    padding: 1.9rem;
+    border-radius: 0 0 0 7px;
+    display: inline-block;
+    float: right;
+}
+
+h3 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.month {
+    color: rgba(255, 255, 255, 0.577);
+    font-weight: normal;
+    font-size: .865em;
+}
+
+.cost {
+    font-size: 1.4em;
+}
+
+.access {
+    font-size: .865rem;
+    font-weight: normal;
+    color: rgba(255, 255, 255, 0.782);
+}
+
+.btn {
+    border: none;
+    border-radius: 3px;
+    width: 160px;
+    height: 35px;
+    margin-top: 1rem;
+    margin-left: 60px;
+    color: white;
+    background-color: hsl(71, 73%, 54%);
+}
+
+
+.why-subscript {
+    background-color: #67c6c6;
+    width: 350px;
+    height: 220px;
+    border-radius: 0 0 7px 0;
+    color:#FFF;
+    padding: 1.9rem;
+    display: inline-block;
+    float: right;
+}
+
+.reasons-subscript li {
+    font-size: 12px;
+    line-height: 1.1rem;
+    font-weight: normal;
+    color:rgba(255, 255, 255, 0.536);
+}
+
+li {
+    list-style-type: none;
+}
+
+
+/* centralize container! made haha */
