@@ -10,39 +10,36 @@ typedef struct Node node;
 int tam;
 
 int menu(void);
-void inicia(node *PILHA);
-void opcao(node *PILHA, int op);
-void exibe(node *PILHA);
-void libera(node *PILHA);
-void push(node *PILHA);
-node *pop(node *PILHA);
+void opcao(node *FILA, int op);
+void inicia(node *FILA);
+int vazia(node *FILA);
+node *aloca();
+void insere(node *FILA);
+node *retira(node *FILA);
+void exibe(node *FILA);
+void libera(node *FILA);
 
 
 int main(void)
 {
- node *PILHA = (node *) malloc(sizeof(node));
- if(!PILHA){
+ node *FILA = (node *) malloc(sizeof(node));
+ if(!FILA){
   printf("Sem memoria disponivel!\n");
   exit(1);
  }else{
- inicia(PILHA);
+ inicia(FILA);
  int opt;
 
  do{
   opt=menu();
-  opcao(PILHA,opt);
+  opcao(FILA,opt);
  }while(opt);
 
- free(PILHA);
+ free(FILA);
  return 0;
  }
 }
 
-void inicia(node *PILHA)
-{
- PILHA->prox = NULL;
- tam=0;
-}
 
 int menu(void)
 {
@@ -50,41 +47,42 @@ int menu(void)
 
  printf("Escolha a opcao\n");
  printf("0. Sair\n");
- printf("1. Zerar PILHA\n");
- printf("2. Exibir PILHA\n");
- printf("3. PUSH\n");
- printf("4. POP\n");
+ printf("1. Zerar fila\n");
+ printf("2. Exibir fila\n");
+ printf("3. Adicionar Elemento na Fila\n");
+ printf("4. Retirar Elemento da Fila\n");
  printf("Opcao: "); scanf("%d", &opt);
 
  return opt;
 }
 
-void opcao(node *PILHA, int op)
+void opcao(node *FILA, int op)
 {
  node *tmp;
  switch(op){
   case 0:
-   libera(PILHA);
+   libera(FILA);
    break;
 
   case 1:
-   libera(PILHA);
-   inicia(PILHA);
+   libera(FILA);
+   inicia(FILA);
    break;
 
   case 2:
-   exibe(PILHA);
+   exibe(FILA);
    break;
 
   case 3:
-   push(PILHA);
+   insere(FILA);
    break;
 
   case 4:
-   tmp= pop(PILHA);
-   if(tmp != NULL)
-   printf("Retirado: %3d\n\n", tmp->num);
-
+   tmp= retira(FILA);
+   if(tmp != NULL){
+    printf("Retirado: %3d\n\n", tmp->num);
+    libera(tmp);
+   }
    break;
 
   default:
@@ -92,9 +90,15 @@ void opcao(node *PILHA, int op)
  }
 }
 
-int vazia(node *PILHA)
+void inicia(node *FILA)
 {
- if(PILHA->prox == NULL)
+ FILA->prox = NULL;
+ tam=0;
+}
+
+int vazia(node *FILA)
+{
+ if(FILA->prox == NULL)
   return 1;
  else
   return 0;
@@ -112,17 +116,50 @@ node *aloca()
  }
 }
 
-
-void exibe(node *PILHA)
+void insere(node *FILA)
 {
- if(vazia(PILHA)){
-  printf("PILHA vazia!\n\n");
+ node *novo=aloca();
+ novo->prox = NULL;
+
+ if(vazia(FILA))
+  FILA->prox=novo;
+ else{
+  node *tmp = FILA->prox;
+
+  while(tmp->prox != NULL)
+   tmp = tmp->prox;
+
+  tmp->prox = novo;
+ }
+ tam++;
+}
+
+
+node *retira(node *FILA)
+{
+ if(FILA->prox == NULL){
+  printf("Fila ja esta vazia\n");
+  return NULL;
+ }else{
+  node *tmp = FILA->prox;
+  FILA->prox = tmp->prox;
+  tam--;
+  return tmp;
+ }
+
+}
+
+
+void exibe(node *FILA)
+{
+ if(vazia(FILA)){
+  printf("Fila vazia!\n\n");
   return ;
  }
 
  node *tmp;
- tmp = PILHA->prox;
- printf("PILHA:");
+ tmp = FILA->prox;
+ printf("Fila :");
  while( tmp != NULL){
   printf("%5d", tmp->num);
   tmp = tmp->prox;
@@ -139,56 +176,17 @@ void exibe(node *PILHA)
  printf("\n\n");
 }
 
-void libera(node *PILHA)
+void libera(node *FILA)
 {
- if(!vazia(PILHA)){
+ if(!vazia(FILA)){
   node *proxNode,
      *atual;
 
-  atual = PILHA->prox;
+  atual = FILA->prox;
   while(atual != NULL){
    proxNode = atual->prox;
    free(atual);
    atual = proxNode;
   }
- }
-}
-
-void push(node *PILHA)
-{
- node *novo=aloca();
- novo->prox = NULL;
-
- if(vazia(PILHA))
-  PILHA->prox=novo;
- else{
-  node *tmp = PILHA->prox;
-
-  while(tmp->prox != NULL)
-   tmp = tmp->prox;
-
-  tmp->prox = novo;
- }
- tam++;
-}
-
-
-node *pop(node *PILHA)
-{
- if(PILHA->prox == NULL){
-  printf("PILHA ja vazia\n\n");
-  return NULL;
- }else{
-  node *ultimo = PILHA->prox,
-              *penultimo = PILHA;
-
-  while(ultimo->prox != NULL){
-   penultimo = ultimo;
-   ultimo = ultimo->prox;
-  }
-
-  penultimo->prox = NULL;
-  tam--;
-  return ultimo;
  }
 }
