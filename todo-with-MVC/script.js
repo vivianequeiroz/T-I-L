@@ -37,10 +37,114 @@ class Model {
     }
   }
 
-// Class View 
+
+// Class View
 
 class View {
-    constructor() {}
+    constructor() {
+    // Creation of root element
+    this.app = this.getElement('#root');
+
+    // Creation app title's 
+    this.title = this.createElement('h1');
+    this.title.textContent = 'To-dos';
+
+    // Creation of form with the text area input and submit button
+    this.form = this.createElement('form');
+        
+    this.input = this.createElement('input');
+    this.input.type = 'text';
+    this.input.placeholder = 'Add a to-do!';
+    this.input.name = 'todo';
+
+    this.submitButton = this.createElement('button');
+    this.submitButton.textContent = 'Submit';
+    // Todo list representation
+    this.todoList = this.createElement('ul', 'todo-list');
+
+    // Addition of input and submit buttons
+    this.form.append(this.input, this.submitButton); 
+
+    // Addition of title, form and todo list 
+    this.app.append(this.title, this.form, this.todoList);
+    }
+
+    get _todoText() {
+        return this.input.value
+    }
+    
+    _resetInput() {
+        this.input.value = ''
+    }
+
+
+    createElement(tag, className) {
+        const element = document.createElement(tag);
+        if(className) element.classList.add(className);
+
+        return element;
+    }
+
+    getElement(selector) {
+        const element = document.querySelector(selector) 
+
+        return element; 
+    }
+
+    // Method to display the todo, reseting and redisplaying it 
+
+    displayTodos(todos) {
+
+    // To delete nodes 
+    while (this.todoList.firstChild) {
+        this.todoList.removeChild(this.todoList.firstChild)
+    }
+
+    // Display a default message 
+
+    if(todos.length === 0) {
+        const p = this.createElement('p');
+        p.textContent = 'Nothing to do yet! Would like to add a task?';
+        this.todoList.append(p);
+    } else {
+        // Creation of todo item nodes for each todo 
+        todos.forEach(todo => {
+            const li = this.createElement('li');
+            li.id = todo.id;
+            // Creation of a box to every todo inserted that can be toggled
+            const checkbox = this.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.checked = todo.complete;
+
+            //Insert todo in a editable span 
+            const span = this.createElement('span');
+            span.contentEditable = true; 
+            span.classList.add('editable');
+
+            // Strikethrough the todo already done or just display the text
+            if (todo.complete) {
+                const strike = this.createElement('s');
+                strike.textContent = todo.text;
+                SpeechRecognitionAlternative.append(strike);
+            } else {
+                span.textContent = todo.text;
+            }
+
+            // Delete button for each item
+            const deleteButton = this.createElement('button', 'delete')
+            deleteButton.textContent = 'Delete';
+            li.apeend(checkbox, span, deleteButton);
+
+            // Add nodes to the todo list
+            this.todoList.append(li);
+        });
+    }
+
+}
+
+}
+
+
 
 
 
@@ -50,8 +154,11 @@ class Controller {
     constructor(model, view) {
         this.model = model;
         this.view = view;
+
     }
 }
+
+
 
 const app = new Controller(new Model(), new View());
 
