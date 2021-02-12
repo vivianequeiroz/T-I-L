@@ -1,57 +1,6 @@
+// ------------------------------------->  Begin Model <----------------------------------- 
+
 class Model {
-    // constructor() {
-    //   // The state of the model, an array of todo objects, prepopulated with some data
-    //   this.todos = JSON.parse(localStorage.getItem('todos')) || [];
-    // }
-  
-    // bindTodoListChanged(callback) {
-    //     this.onTodoListChanged = callback
-    // }
-
-    // // Update the value of localStorage andthe model state.
-
-    // _commit(todos) {
-    //     this.onTodoListChanged(todos);
-    //     localStorage.setItem('todos', JSON.stringify(todos));
-    //   }
-
-    // addTodo(todoText) {
-    //   const todo = {
-    //     id: this.todos.length > 0 ? this.todos[this.todos.length - 1].id + 1 : 1,
-    //     text: todoText,
-    //     complete: false,
-    //   }
-  
-    //   this.todos.push(todo);
-
-    //   this._commit(this.todos);
-    // }
-  
-    // // Map through all todos, and replace the text of the todo with the specified id
-    // editTodo(id, updatedText) {
-    //   this.todos = this.todos.map((todo) =>
-    //     todo.id === id ? {id: todo.id, text: updatedText, complete: todo.complete} : todo,
-    //   )
-
-    //   this._commit(this.todos);
-    // }
-  
-    // // Filter a todo out of the array by id
-    // deleteTodo(id) {
-    //     this.todos = this.todos.filter(todo => todo.id !== id);
-      
-    //     this._commit(this.todos);
-    // }
-  
-    // // Flip the complete boolean on the specified todo
-    // toggleTodo(id) {
-    //   this.todos = this.todos.map((todo) =>
-    //     todo.id === id ? {id: todo.id, text: todo.text, complete: !todo.complete} : todo,
-    //   );
-
-
-    //   this._commit(this.todos);
-    // }
         constructor() {
           this.todos = JSON.parse(localStorage.getItem('todos')) || []
         }
@@ -98,16 +47,12 @@ class Model {
       
           this._commit(this.todos)
         }
-      
+}
+
+// ----------------------------------->  End Model <------------------------------------ 
 
 
-    
-
-    
-  }
-
-
-// Class View
+// ----------------------------------->  Begin View <----------------------------------- 
 
 class View {
     constructor() {
@@ -205,9 +150,6 @@ class View {
           this.todoList.append(li)
         })
       }
-  
-      // Debugging
-      console.log(todos)
     }
   
     _initLocalListeners() {
@@ -261,57 +203,10 @@ class View {
     }
 }
 
+// ------------------------------------>  End View <------------------------------------- 
+
      
-      
-
-
-
-
-
-
-
-
-// Class Controler 
-
-// class Controller {
-//     constructor(model, view) {
-//         this.model = model;
-//         this.view = view;
-
-//         //To show initial todos
-//         this.ontodoListChanged(this.model.todos);
-
-//         this.view.bindAddTodo(this.handleAddTodo);
-//         this.view.bindDeleteTodo(this.handleDeleteTodo);
-//         this.view.bindToggleTodo(this.handleToggleTodo);
-        
-//         this.model.bindTodoListChanged(this.onTodoListChanged);
-//     }
-
-//     ontodoListChanged = (todos) => {
-//         this.view.displayTodos(todos)
-//     }
-
-//     //Handling with the event dispatched by the view
-
-//     handleAddTodo = (todoText) => {
-//         this.model.addTodo(todoText);
-//     }
-
-//     handleEditTodo = (id, todoText) => {
-//         this.model.editTodo(id, todoText); 
-//     }
-
-//     handleDeleteTodo = (id) => {
-//         this.model.deleteTodo(id);
-//     }
-
-//     handleToggleTodo = (id) => {
-//         this.model.toggleTodo(id)
-//     }
-
-
-// }
+// --------------------------------->  Begin Controler <--------------------------------- 
 
 
 class Controller {
@@ -351,7 +246,7 @@ class Controller {
     }
   }
 
-
+// ---------------------------------->  End Controler <---------------------------------- 
 
 const app = new Controller(new Model(), new View());
 
