@@ -1,40 +1,109 @@
 class Model {
-    constructor() {
-      // The state of the model, an array of todo objects, prepopulated with some data
-      this.todos = [
-        {id: 1, text: 'Run a marathon', complete: false},
-        {id: 2, text: 'Plant a garden', complete: false},
-      ]
-    }
+    // constructor() {
+    //   // The state of the model, an array of todo objects, prepopulated with some data
+    //   this.todos = JSON.parse(localStorage.getItem('todos')) || [];
+    // }
   
-    addTodo(todoText) {
-      const todo = {
-        id: this.todos.length > 0 ? this.todos[this.todos.length - 1].id + 1 : 1,
-        text: todoText,
-        complete: false,
-      }
+    // bindTodoListChanged(callback) {
+    //     this.onTodoListChanged = callback
+    // }
+
+    // // Update the value of localStorage andthe model state.
+
+    // _commit(todos) {
+    //     this.onTodoListChanged(todos);
+    //     localStorage.setItem('todos', JSON.stringify(todos));
+    //   }
+
+    // addTodo(todoText) {
+    //   const todo = {
+    //     id: this.todos.length > 0 ? this.todos[this.todos.length - 1].id + 1 : 1,
+    //     text: todoText,
+    //     complete: false,
+    //   }
   
-      this.todos.push(todo)
-    }
+    //   this.todos.push(todo);
+
+    //   this._commit(this.todos);
+    // }
   
-    // Map through all todos, and replace the text of the todo with the specified id
-    editTodo(id, updatedText) {
-      this.todos = this.todos.map((todo) =>
-        todo.id === id ? {id: todo.id, text: updatedText, complete: todo.complete} : todo,
-      )
-    }
+    // // Map through all todos, and replace the text of the todo with the specified id
+    // editTodo(id, updatedText) {
+    //   this.todos = this.todos.map((todo) =>
+    //     todo.id === id ? {id: todo.id, text: updatedText, complete: todo.complete} : todo,
+    //   )
+
+    //   this._commit(this.todos);
+    // }
   
-    // Filter a todo out of the array by id
-    deleteTodo(id) {
-      this.todos = this.todos.filter((todo) => todo.id !== id)
-    }
+    // // Filter a todo out of the array by id
+    // deleteTodo(id) {
+    //     this.todos = this.todos.filter(todo => todo.id !== id);
+      
+    //     this._commit(this.todos);
+    // }
   
-    // Flip the complete boolean on the specified todo
-    toggleTodo(id) {
-      this.todos = this.todos.map((todo) =>
-        todo.id === id ? {id: todo.id, text: todo.text, complete: !todo.complete} : todo,
-      )
-    }
+    // // Flip the complete boolean on the specified todo
+    // toggleTodo(id) {
+    //   this.todos = this.todos.map((todo) =>
+    //     todo.id === id ? {id: todo.id, text: todo.text, complete: !todo.complete} : todo,
+    //   );
+
+
+    //   this._commit(this.todos);
+    // }
+        constructor() {
+          this.todos = JSON.parse(localStorage.getItem('todos')) || []
+        }
+      
+        bindTodoListChanged(callback) {
+          this.onTodoListChanged = callback
+        }
+      
+        _commit(todos) {
+          this.onTodoListChanged(todos)
+          localStorage.setItem('todos', JSON.stringify(todos))
+        }
+      
+        addTodo(todoText) {
+          const todo = {
+            id: this.todos.length > 0 ? this.todos[this.todos.length - 1].id + 1 : 1,
+            text: todoText,
+            complete: false,
+          }
+      
+          this.todos.push(todo)
+      
+          this._commit(this.todos)
+        }
+      
+        editTodo(id, updatedText) {
+          this.todos = this.todos.map(todo =>
+            todo.id === id ? { id: todo.id, text: updatedText, complete: todo.complete } : todo
+          )
+      
+          this._commit(this.todos)
+        }
+      
+        deleteTodo(id) {
+          this.todos = this.todos.filter(todo => todo.id !== id)
+      
+          this._commit(this.todos)
+        }
+      
+        toggleTodo(id) {
+          this.todos = this.todos.map(todo =>
+            todo.id === id ? { id: todo.id, text: todo.text, complete: !todo.complete } : todo
+          )
+      
+          this._commit(this.todos)
+        }
+      
+
+
+    
+
+    
   }
 
 
@@ -67,82 +136,136 @@ class View {
 
     // Addition of title, form and todo list 
     this.app.append(this.title, this.form, this.todoList);
-    }
 
+    // Live editiing 
+    this._temporaryTodoText;
+    this._initLocalListeners();
+
+    }
     get _todoText() {
-        return this.input.value
+      return this.input.value
     }
-    
+  
     _resetInput() {
-        this.input.value = ''
+      this.input.value = ''
     }
-
-
+  
     createElement(tag, className) {
-        const element = document.createElement(tag);
-        if(className) element.classList.add(className);
-
-        return element;
+      const element = document.createElement(tag)
+  
+      if (className) element.classList.add(className)
+  
+      return element
     }
-
+  
     getElement(selector) {
-        const element = document.querySelector(selector) 
-
-        return element; 
+      const element = document.querySelector(selector)
+  
+      return element
     }
-
-    // Method to display the todo, reseting and redisplaying it 
-
+  
     displayTodos(todos) {
-
-    // To delete nodes 
-    while (this.todoList.firstChild) {
+      // Delete all nodes
+      while (this.todoList.firstChild) {
         this.todoList.removeChild(this.todoList.firstChild)
-    }
-
-    // Display a default message 
-
-    if(todos.length === 0) {
-        const p = this.createElement('p');
-        p.textContent = 'Nothing to do yet! Would like to add a task?';
-        this.todoList.append(p);
-    } else {
-        // Creation of todo item nodes for each todo 
+      }
+  
+      // Show default message
+      if (todos.length === 0) {
+        const p = this.createElement('p')
+        p.textContent = 'Nothing to do! Add a task?'
+        this.todoList.append(p)
+      } else {
+        // Create nodes
         todos.forEach(todo => {
-            const li = this.createElement('li');
-            li.id = todo.id;
-            // Creation of a box to every todo inserted that can be toggled
-            const checkbox = this.createElement('input');
-            checkbox.type = 'checkbox';
-            checkbox.checked = todo.complete;
-
-            //Insert todo in a editable span 
-            const span = this.createElement('span');
-            span.contentEditable = true; 
-            span.classList.add('editable');
-
-            // Strikethrough the todo already done or just display the text
-            if (todo.complete) {
-                const strike = this.createElement('s');
-                strike.textContent = todo.text;
-                SpeechRecognitionAlternative.append(strike);
-            } else {
-                span.textContent = todo.text;
-            }
-
-            // Delete button for each item
-            const deleteButton = this.createElement('button', 'delete')
-            deleteButton.textContent = 'Delete';
-            li.apeend(checkbox, span, deleteButton);
-
-            // Add nodes to the todo list
-            this.todoList.append(li);
-        });
+          const li = this.createElement('li')
+          li.id = todo.id
+  
+          const checkbox = this.createElement('input')
+          checkbox.type = 'checkbox'
+          checkbox.checked = todo.complete
+  
+          const span = this.createElement('span')
+          span.contentEditable = true
+          span.classList.add('editable')
+  
+          if (todo.complete) {
+            const strike = this.createElement('s')
+            strike.textContent = todo.text
+            span.append(strike)
+          } else {
+            span.textContent = todo.text
+          }
+  
+          const deleteButton = this.createElement('button', 'delete')
+          deleteButton.textContent = 'Delete'
+          li.append(checkbox, span, deleteButton)
+  
+          // Append nodes
+          this.todoList.append(li)
+        })
+      }
+  
+      // Debugging
+      console.log(todos)
     }
-
+  
+    _initLocalListeners() {
+      this.todoList.addEventListener('input', event => {
+        if (event.target.className === 'editable') {
+          this._temporaryTodoText = event.target.innerText
+        }
+      })
+    }
+  
+    bindAddTodo(handler) {
+      this.form.addEventListener('submit', event => {
+        event.preventDefault()
+  
+        if (this._todoText) {
+          handler(this._todoText)
+          this._resetInput()
+        }
+      })
+    }
+  
+    bindDeleteTodo(handler) {
+      this.todoList.addEventListener('click', event => {
+        if (event.target.className === 'delete') {
+          const id = parseInt(event.target.parentElement.id)
+  
+          handler(id)
+        }
+      })
+    }
+  
+    bindEditTodo(handler) {
+      this.todoList.addEventListener('focusout', event => {
+        if (this._temporaryTodoText) {
+          const id = parseInt(event.target.parentElement.id)
+  
+          handler(id, this._temporaryTodoText)
+          this._temporaryTodoText = ''
+        }
+      })
+    }
+  
+    bindToggleTodo(handler) {
+      this.todoList.addEventListener('change', event => {
+        if (event.target.type === 'checkbox') {
+          const id = parseInt(event.target.parentElement.id)
+  
+          handler(id)
+        }
+      })
+    }
 }
 
-}
+     
+      
+
+
+
 
 
 
@@ -150,15 +273,86 @@ class View {
 
 // Class Controler 
 
+// class Controller {
+//     constructor(model, view) {
+//         this.model = model;
+//         this.view = view;
+
+//         //To show initial todos
+//         this.ontodoListChanged(this.model.todos);
+
+//         this.view.bindAddTodo(this.handleAddTodo);
+//         this.view.bindDeleteTodo(this.handleDeleteTodo);
+//         this.view.bindToggleTodo(this.handleToggleTodo);
+        
+//         this.model.bindTodoListChanged(this.onTodoListChanged);
+//     }
+
+//     ontodoListChanged = (todos) => {
+//         this.view.displayTodos(todos)
+//     }
+
+//     //Handling with the event dispatched by the view
+
+//     handleAddTodo = (todoText) => {
+//         this.model.addTodo(todoText);
+//     }
+
+//     handleEditTodo = (id, todoText) => {
+//         this.model.editTodo(id, todoText); 
+//     }
+
+//     handleDeleteTodo = (id) => {
+//         this.model.deleteTodo(id);
+//     }
+
+//     handleToggleTodo = (id) => {
+//         this.model.toggleTodo(id)
+//     }
+
+
+// }
+
+
 class Controller {
     constructor(model, view) {
-        this.model = model;
-        this.view = view;
-
+      this.model = model
+      this.view = view
+  
+      // Explicit this binding
+      this.model.bindTodoListChanged(this.onTodoListChanged)
+      this.view.bindAddTodo(this.handleAddTodo)
+      this.view.bindEditTodo(this.handleEditTodo)
+      this.view.bindDeleteTodo(this.handleDeleteTodo)
+      this.view.bindToggleTodo(this.handleToggleTodo)
+  
+      // Display initial todos
+      this.onTodoListChanged(this.model.todos)
     }
-}
+  
+    onTodoListChanged = todos => {
+      this.view.displayTodos(todos)
+    }
+  
+    handleAddTodo = todoText => {
+      this.model.addTodo(todoText)
+    }
+  
+    handleEditTodo = (id, todoText) => {
+      this.model.editTodo(id, todoText)
+    }
+  
+    handleDeleteTodo = id => {
+      this.model.deleteTodo(id)
+    }
+  
+    handleToggleTodo = id => {
+      this.model.toggleTodo(id)
+    }
+  }
 
 
 
 const app = new Controller(new Model(), new View());
+
 
