@@ -1,7 +1,8 @@
 # Padrão MVC (Model, View, Controller)
 
 <h1 align="center">
-    <img src = "https://blog.teclogica.com.br/wp-content/uploads/2012/03/usabilidade-1.jpg" alt = "Desenho de celular com diversos ícones que remetem ao UX design" text-align="center"  width="400px">
+    <img src = "https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8&auto=format&fit=crop&w=500&q=60" alt = "Desenho de celular com diversos ícones que remetem ao UX design" text-align="center"  width="400px">
+    <p style="font-size:10px">Imagem de Shahadat Rahman disponível para uso livre no <a href="https://unsplash.com/">Unsplash</a></p>
 </h1> 
 
   > Padrão de organização de código que visa utilizar de soluções previamente criadas a fim de fazer a separação de partes distintas da aplicação e, assim, reduzir sua dependência
@@ -61,9 +62,11 @@
     - O fluxo de coleta de dados pode ser repetido diversas vezes
     - View recebe os dados do Controller e renderiza a página e resposta que será enviada ao browser
 
-#### Recursos: 
+#### Fontes: 
 
-<p> Livro <a href="https://www.amazon.com.br/Não-faça-pensar-Steve-Krug/dp/8576088509/ref=asc_df_8576088509/?tag=googleshopp00-20&linkCode=df0&hvadid=379726290955&hvpos=&hvnetw=g&hvrand=7313052300154191141&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1001773&hvtargid=pla-811021535400&psc=1"> Não me faça pensar</a> de Steve Krug. 
+<p> MVC na Prática,<a href="https://www.youtube.com/watch?v=mMDt9g7bMjk">  vídeo de Cod3r Cursos</a>
+<p> Entendendo o padrão MVC na prática,<a href="https://tableless.com.br/entendendo-o-padrao-mvc-na-pratica/">  texto de Erik Figueiredo na Tabless</a> 
+<p> Build a Simple MVC App From Scratch in JavaScript<a href="https://www.taniarascia.com/javascript-mvc-todo-app/">  texto de Tania Rascia</a> 
 
 <br><br>
 
