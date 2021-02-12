@@ -2,7 +2,6 @@
 
 <h1 align="center">
     <img src = "https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8&auto=format&fit=crop&w=500&q=60" alt = "Desenho de celular com diversos ícones que remetem ao UX design" text-align="center"  width="400px">
-    <p style="font-size:10px">Imagem de Shahadat Rahman disponível para uso livre no <a href="https://unsplash.com/">Unsplash</a></p>
 </h1> 
 
   > Padrão de organização de código que visa utilizar de soluções previamente criadas a fim de fazer a separação de partes distintas da aplicação e, assim, reduzir sua dependência
