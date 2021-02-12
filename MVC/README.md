@@ -4,7 +4,7 @@
     <img src = "https://blog.teclogica.com.br/wp-content/uploads/2012/03/usabilidade-1.jpg" alt = "Desenho de celular com diversos ícones que remetem ao UX design" text-align="center"  width="400px">
 </h1> 
 
-  > Padrão de organização de código que visa
+  > Padrão de organização de código que visa utilizar de soluções previamente criadas a fim de fazer a separação de partes distintas da aplicação e, assim, reduzir sua dependência
 
 ## Model
 <ul>
