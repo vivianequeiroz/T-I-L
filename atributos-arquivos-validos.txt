@@ -1,0 +1,9 @@
+Cite 5 tipos de atributos de arquivo válidos, encontrados no livro do Tanenbaum.
+
+Alguns dos atributos de arquivo válidos de acordo com Tanenbaum, são:
+
+1. Proteção: que define as restriçoes de acesso ao arquivo
+2. Proprietário: que identifica o usuário que possui o arquivo
+3. Tempo de criação: que registra data e hora exatas da criação do arquivo
+4. Tamanho corrente: total de bytes do arquivo
+5. Flag de ASCII/binário: atribui  para arquivo ASCII e  para arquivo binário 

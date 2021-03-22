@@ -1,0 +1,5 @@
+O que acontece com um processo que esgota o seu quantum em um escalonador Robin Round?
+
+- De maneira geral, ao término de um quantum ocorre o processo de comutação,
+em que a CPU cede o espaço que estava sendo ocupado por esse processo a um outro.
+

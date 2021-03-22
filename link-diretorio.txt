@@ -1,0 +1,4 @@
+O que faz exatamente a operação de diretório LINK? 
+
+- A operação LINK permite que, por meio do vínculo entre o nome de um arquivo existente e de um caminho definido pelo usuário,
+tal arquivo torne-se acessível em diferentes diretórios.  
