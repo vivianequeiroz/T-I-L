@@ -1,0 +1,4 @@
+Qual é a principal vantagem do uso de Busca de Página por Demanda na memória?
+
+- Tem-se como a principal vantagem o fato de que exclusivamente as páginas acessadas por um 
+processo em andamento serão aquelas carregadas em memória. Isso aumenta significantemente  a eficiência com que a memória pode ser utilizada.
