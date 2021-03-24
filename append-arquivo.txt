@@ -1,0 +1,6 @@
+O que faz exatamente a operação de arquivo chamada APPEND?
+
+- Essa operação de arquivo se caracteriza por adicionar dados apenas ao final de um arquivo,
+tal como um apendice, sem substituir o conteudo ja presente nele. É comumente identificada como 
+forma restrita de WRITE.
+

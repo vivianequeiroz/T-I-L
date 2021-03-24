@@ -1,0 +1,6 @@
+No contexto de gerenciamento de memória, quando ocorre um Page Fault?
+
+- Page Fault é provocado pelo gerenciamento de memória no momento em que o software tenta realizar
+leitura ou gravação em um endereço virtual que não consta como mapeado.
+É um erro característico de quando se tenta acessar um endereço alocado fora da memória RAM, seja
+porque essa estava sobrecarregada, ou, por alguma restrição de acesso. 
