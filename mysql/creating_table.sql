@@ -20,3 +20,9 @@ CREATE TABLE STUDENT (
     FOREIGN KEY (courseId) REFERENCES COURSE(courseId)
 );
 
+-- INSERTING ITEMS INTO A TABLE
+INSERT INTO COURSE (courseId, courseName)
+    VALUES
+    (01, 'Biology'),
+    (02, 'Geology'),
+    (03, 'History');
