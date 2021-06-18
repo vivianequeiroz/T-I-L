@@ -1,0 +1,48 @@
+-- Aluno: Viviane de Santana Queiroz
+-- Matricula: 3053601
+-- Data: 03/06/2021
+
+CREATE DATABASE IFSP;
+USE IFSP;
+
+CREATE TABLE FORNECEDOR (
+  	idFornecedor int,
+    empresa text(100),
+    cnpj bigint,
+    endreco text(100),
+    telefone int,
+    email varchar(255),
+    PRIMARY KEY(idFornecedor)
+);
+
+CREATE TABLE PRODUTOS (
+	  idProdutos int,
+    nome text(100),
+    quantidade int,
+    PRIMARY KEY (idProdutos),
+    FOREIGN KEY (idFornecedor) REFERENCES FORNECEDOR(idFornecedor)
+);
+
+CREATE TABLE CLIENTE (
+    idCliente int,
+    nome text(30),
+    telefone int,
+    dataDeNasc date,
+    cpf bigint,
+    endereco text(100),
+    PRIMARY KEY (idCliente)
+);
+
+CREATE TABLE VENDAS (
+    idVendas int,
+    idCliente int NOT NULL,
+    idProdutos int NOT NULL,
+    quantidade bigint,
+    PRIMARY KEY (idVendas),
+    FOREIGN KEY (idCliente) REFERENCES CLIENTE(idCliente),
+    FOREIGN KEY (idProdutos) REFERENCES PRODUTOS(idProdutos) 
+);
+
+CREATE USER 'usuarioTeste'@'localhost' IDENTIFIED BY 'password';
+
+GRANT CREATE,DELETE,INSERT,SELECT,UPDATE ON IFSP.* TO 'usuarioTeste'@'localhost';
