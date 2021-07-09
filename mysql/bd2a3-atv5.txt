@@ -43,3 +43,8 @@ SELECT nome, M.codigo_medico FROM medicos M LEFT JOIN consultas C ON  M.codigo_m
 SELECT nome, salario FROM funcionarios WHERE cidade = "Florianopolis" AND salario > 1200;
 
 SELECT * FROM ambulatorios A INNER JOIN medicos M ON A.numero_ambulatorio = M.numero_ambulatorio;
+
+
+////////////////////
+
+SELECT nome, cpf FROM medicos WHERE nome IN (SELECT nome FROM pacientes); 
