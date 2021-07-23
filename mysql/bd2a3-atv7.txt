@@ -1,0 +1,24 @@
+-- Projeto Integrador: Agendador de tarefas (feito por João Vitor Silva Bispo e Viviane de Santana Queiroz)
+
+-- 1. View que armazena todas tarefas que possuem sub tarefas
+CREATE VIEW tarefas_com_subtarefa AS
+SELECT st.* FROM subtarefa_tarefa st
+RIGHT JOIN tarefa t ON st.tarefa_id = t.id;
+
+
+SELECT * FROM tarefas_com_subtarefa
+
+
+-- 2. Trigger que deleta tarefas, subtarefas e lembretes vinculados ao usuario deletado 
+
+DROP TRIGGER IF EXISTS `agendador_de_tarefas`.`usuario_AFTER_DELETE`;
+
+DELIMITER $$
+USE `agendador_de_tarefas`$$
+CREATE DEFINER = CURRENT_USER TRIGGER `agendador_de_tarefas`.`usuario_AFTER_DELETE` AFTER DELETE ON `usuario` FOR EACH ROW
+BEGIN
+    DELETE FROM tarefa WHERE usuario_id = OLD.id;
+    DELETE FROM subtarefa_tarefa WHERE usuario_id = OLD.id;
+    DELETE FROM lembrete_tarefa WHERE usuario_id = OLD.id;
+END$$
+DELIMITER ;
