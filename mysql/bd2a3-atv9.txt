@@ -1,0 +1,47 @@
+-- Projeto Integrador: Agendador de tarefas (feito por João Vitor Silva Bispo e Viviane de Santana Queiroz)
+
+-- 1. Criação de 3 Functions com base no projeto:
+
+DELIMITER $$
+ CREATE FUNCTION function_bem_vindo() RETURNS VARCHAR(100) DETERMINISTIC
+ BEGIN
+  RETURN "Bem-vindo ao seu agendador de tarefas!";
+ END
+ $$
+
+DELIMITER $$
+CREATE FUNCTION listar_tarefas_do_usuario(IN id_usuario INT) 
+BEGIN
+  SELECT id FROM tarefa WHERE usuario_id = id_usuario;
+  RETURN 
+END
+$$
+ 
+DELIMITER $$
+CREATE FUNCTION lista_todos_usuarios()
+BEGIN
+  SELECT * FROM usuario;
+  RETURN
+END
+$$
+
+
+-- 2. Criação de 3 Procedures com base no projeto:
+
+CREATE PROCEDURE remover_lembretes_da_tarefa_do_usuario(IN id_usuario INT, IN id_tarefa INT)
+DELETE FROM lembrete_tarefa WHERE usuario_id = id_usuario AND tarefa_id = id_tarefa;
+
+CALL remover_lembretes_da_tarefa_do_usuario(1, 1);
+
+
+CREATE PROCEDURE remover_tarefa_do_usuario(IN id_usuario INT, IN id_tarefa INT)
+DELETE FROM tarefa WHERE usuario_id = id_usuario AND id = id_tarefa;
+
+CALL remover_tarefa_do_usuario(2, 1);
+
+CREATE PROCEDURE remover_todas_tarefa_do_usuario(IN id_usuario INT)
+DELETE FROM tarefa WHERE usuario_id = id_usuario;
+
+CALL remover_todas_tarefa_do_usuario(3);
+
+
