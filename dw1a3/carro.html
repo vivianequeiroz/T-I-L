@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="carro.js"></script>
+
+    <title>Exe 2: Carro</title>
+  </head>
+  <body>
+    <header class="header">
+      <h1>desenvolvimento web</h1>
+      <nav class="navbar">
+        <ul>
+          <li><a href="restaurante.html">Restaurante</a></li>
+          <li><a href="carro.html">Carro</a></li>
+          <li><a href="index.html">Home</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <h2>Clique para verificar as informações do veículo</h2>
+    <button class="exibe-dados-veiculos" onclick="exibeInfosCarro()">Exibir</button>
+
+    <section id="dados-carro">
+    </section>
+
+      <!-- <fieldset id="informacoes-para-calculo">
+        <legend>Informações do veículo:</legend>
+        <label for="marca">Marca:</label>
+        <input class="input-marca" type="text" name="Marca" id="marca" />
+
+        <label for="modelo">Modelo:</label>
+        <input class="input-modelo" type="text" name="Modelo" id="modelo" />
+
+        <label for="ano-fabricacao">Ano fabricação:</label>
+        <input
+          class="input-ano-fabricacao"
+          type="text"
+          name="AnoFabricacao"
+          id="ano-fabricacao"
+        />
+
+        <label for="preco-venda">Preço de venda:</label>
+        <input
+          class="valor-real"
+          type="text"
+          name="PrecoVenda"
+          id="preco-venda"
+        />
+
+        <label for="data-registro">Data de registro:</label>
+        <input
+          class="input-data-registro"
+          type="date"
+          name="DataRegistro"
+          id="data-registro"
+        />
+      </fieldset> -->
+
+      <fieldset id="informacoes-pagamento">
+        <label for="desconto">Desconto à vista(porcentagem): </label>
+        <input
+          class="valor-porcentagem"
+          type="text"
+          name="DataRegistro"
+          id="desconto"
+        />
+
+        <label for="entrada">Entrada à prazo (24x sem juros):</label>
+        <input
+          class="valor-real"
+          type="text"
+          name="DataRegistro"
+          id="entrada"
+        />
+      </fieldset>
+    </form>
+
+    <p>Valor a ser pago à vista:</p>
+    <p>Valor a ser pago à prazo:</p>
+    <input class="calcular-valor" type="submit" value="Enviar dados e calcular" />
+
+    <footer class="footer">
+      <p>Feito por Viviane de Santana Queiroz | SP3053601</p>
+    </footer>
+  </body>
+</html>

@@ -1,65 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Exe 1: Restaurante</title>
-  </head>
-  <body>
-    <header class="header">
-      <h1>desenvolvimento web</h1>
-      <nav class="navbar">
-        <ul>
-          <li><a href="restaurante.html">Restaurante</a></li>
-          <li><a href="carro.html">Carro</a></li>
-          <li><a href="index.html">Home</a></li>
-        </ul>
-      </nav>
-    </header>
 
-    <section class="calculo-consumo">
-      <form id="calculo-consumo" >
-        <fieldset>
-          <legend>Cálculo de consumo</legend>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="restaurante.js"></script>
+  <title>Exe 1: Restaurante</title>
+</head>
+
+<body>
+  <header class="header">
+    <h1>desenvolvimento web</h1>
+    <nav class="navbar">
+      <ul>
+        <li><a href="restaurante.html">Restaurante</a></li>
+        <li><a href="carro.html">Carro</a></li>
+        <li><a href="index.html">Home</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="calculo-consumo">
+    <form id="calculo-consumo">
+      <fieldset>
+        <legend>Cálculo de consumo</legend>
 
         <label for="preco-kg">Preço por quilograma: R$</label>
         <input class="input-preco-kg" type="text" name="PrecoQuilograma" id="preco-kg" />
-    
+
         <label for="consumo-g">Consumo em gramas:</label>
         <input class="input-consumo-g" type="text" name="ConsumoGramas" id="consumo-g" />
-        
+
         <input class="calcular-valor" type="submit" value="Calcular" />
-        </fieldset>
+      </fieldset>
 
-      </form>
+    </form>
 
-      <p>Total a ser pago: </p>
+    <p>Total a ser pago: <span id="total"></span></p>
 
 
-      <div class="excedeu-gramas">
-        <p>Erro: Peso máximo permitido é de 1000g.</p>
-      </div>
-    </section>
+    <div id="preco-excedido" class="excedeu-gramas" style="visibility: hidden;">
+      <p>Erro: Peso máximo permitido é de 1000g.</p>
+    </div>
+  </section>
 
-    <section class="lista-vendas">
-      <h3>Clique no botão para verificar uma lista do consumo do dia</h4>
-        <button type="button">Listar vendas</button>
-      
-      <ul class="vendas">
+  <section class="lista-vendas">
+    <h3>Clique no botão para verificar uma lista do consumo do dia</h4>
+      <button id="listar" type="button">Listar vendas</button>
+
+      <ul id="todas-vendas" class="vendas">
       </ul>
 
-      <p>Total vendido: R$ </p>
-      
-       <div class="peso-max-dia">
-        <p>Peso máximo vendido no dia: </p>
-      </div>
-    </section>
-   
+      <p>Total vendido: R$ <span id="total-vendido"></span></p>
 
-    <footer class="footer">
-      <p>Feito por Viviane de Santana Queiroz | SP3053601</p>
-    </footer>
-  </body>
+      <div class="peso-max-dia">
+        <p> Peso máximo vendido no dia: <span id="total-peso"></span></p>
+      </div>
+  </section>
+
+
+  <footer class="footer">
+    <p>Feito por Viviane de Santana Queiroz | SP3053601</p>
+  </footer>
+
+  <script src="restaurante.js"></script>
+</body>
+
 </html>
