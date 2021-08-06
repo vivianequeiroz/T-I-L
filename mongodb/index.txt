@@ -1,0 +1,28 @@
+db.createCollection("tarefas");
+
+db.tarefas.insert(
+  { 
+    titulo : "Fazer exercício físico",  
+    descricao : "Correr 10km no parque", 
+    status : "PENDENTE",
+    tag_id : 1,  
+    data : new Date (2000, 02, 15),
+    hora : new Date (15:00),
+    usuario_id : 1,
+  }
+).limit(5)
+
+db.tarefas.find(
+  {
+    usuario_id: 1,
+  }
+)
+
+db.tarefas.update(
+    {"tarefas.status" : "REALIZADO"}, 
+    {"curso.descricao": "Correr 5km e caminhar 5km"}
+)
+
+db.tarefas.deleteOne({
+    tag_id: 1,
+})
