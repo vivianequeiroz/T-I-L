@@ -9,6 +9,10 @@ p {
   font-family: Arial, sans-serif;
 }
 
+body {
+  margin-bottom: 6.25rem;
+}
+
 a {
   text-decoration: none;
   color: #fff;
@@ -51,8 +55,7 @@ img {
   display: block;
 }
 
-
-/* Flexbox page content - aligning items of same size in columns */
+/* Flexbox page content - aligning items of same size  */
 
 .flex {
   display: flex;
@@ -63,5 +66,46 @@ img {
 
 .flex > div {
   flex: 1 1 12.5rem;
-  margin: .625rem;
+  margin: 0.625rem;
+}
+
+/* Grid 1 - aligning items of different sizes */
+
+.grid-1 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 50rem;
+  padding: .625rem;
+  margin: 0 auto;
+  grid-gap: 1.25rem;
+}
+
+.grid-1 > div:nth-child(n + 4) {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: .625rem;
+  align-items: center;
+}
+
+.grid-1 > div.advertisement {
+  grid-column: 1;
+  grid-row: 2 / 5;
+  display: block;
+}
+
+/* Responsivity */
+
+@media (max-width: 600px) {
+  .grid-1 {
+     grid-template-columns: repeat(2, 1fr);
+  }
+  .grid-1 > div:nth-child(n + 4) {
+    /* it works because with display block the grid properties 
+    can not be applied anymore*/
+    display: block;
+  }
+  .grid-1 > div.advertisement {
+    grid-column: auto;
+  grid-row: auto;
+order: -1  }
 }
