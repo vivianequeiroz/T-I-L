@@ -22,7 +22,7 @@ adds align items guarantees the elements are centralized */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 1.25rem;
 }
 
 /* Flex display align each option side by side */
@@ -38,4 +38,30 @@ adds align items guarantees the elements are centralized */
 .menu li a {
   display: block;
   padding: 10px;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 6.25rem;
+}
+
+/* Making images responsive */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+
+/* Flexbox page content - aligning items of same size in columns */
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 50rem;
+  margin: 0 auto;
+}
+
+.flex > div {
+  flex: 1 1 12.5rem;
+  margin: .625rem;
 }
