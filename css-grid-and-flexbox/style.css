@@ -109,3 +109,34 @@ img {
   grid-row: auto;
 order: -1  }
 }
+
+
+/* Grid 2 */
+
+.grid-2 {
+  display: grid;
+  /* Gives the YT appearance */
+  grid-template-columns:  1fr 200px;
+  grid-gap: 1.25rem;
+  max-width: 50rem;padding: .625rem;
+  margin: 0 auto;
+}
+
+.sidebar > div {
+  margin-bottom: 10px;
+}
+
+@media (max-width: 600px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    display: flex;
+    overflow: scroll;
+  }
+  .sidebar > div {
+    flex: 1 0 12.5rem;
+    margin: 0 .625rem;
+  }
+}
+
