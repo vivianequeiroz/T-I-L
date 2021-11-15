@@ -1,8 +1,8 @@
-import java.utils.Queue;
-import java.utils.PriorityQueue;
-import java.utils.Collections;
+import java.util.Queue;
+import java.util.PriorityQueue;
+import java.util.Collections;
 
-public class PriorityQueue {
+public class PriorityQueueExample {
   public static void main(String[] args) {
 
     Queue<Double> crescentOrderQueue = new PriorityQueue<>();
@@ -31,7 +31,7 @@ public class PriorityQueue {
     } // it will return the values in DEcrescent order and remove it from the queue
       // after printing each of them;
 
-    Queue<Double> stringOrderQueue = new PriorityQueue<>();
+    Queue<String> stringOrderQueue = new PriorityQueue<>();
 
     stringOrderQueue.offer("B");
     stringOrderQueue.offer("C");

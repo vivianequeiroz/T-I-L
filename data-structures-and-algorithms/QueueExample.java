@@ -1,11 +1,11 @@
-import java.utils.Queue;
-import java.utils.LinkedList;
+import java.util.LinkedList;
+import java.util.Queue;
 
-public class Queue {
+public class QueueExample {
   public static void main(String[] args) {
 
     // Queue<String> queue = new Queue<String>(); it doesn't work because Queue is a
-    // Java Intarface (part of Collection class), so its necessary to use a class
+    // Java Interface (part of Collection class), so its necessary to use a class
     // that implements its interface instead (LinkedinList or PriorityQueue) to be
     // instantiated
 
@@ -23,7 +23,7 @@ public class Queue {
 
     System.out.println(queue.isEmpty());
     System.out.println(queue.size());
-    System.out.prinln(queue.contains("Harold")); // does not return the position/index of the object
+    System.out.println(queue.contains("Harold")); // does not return the position/index of the object
 
     // ~ Usage examples:
     // 1 - Keyboard buffer

@@ -1,6 +1,6 @@
-import java.utils.Stack;
+import java.util.Stack;
 
-public class Stack {
+public class StackExample {
   public static void main(String[] args) {
 
     Stack<String> stack = new Stack<String>();
