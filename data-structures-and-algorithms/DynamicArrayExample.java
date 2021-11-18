@@ -21,7 +21,7 @@ public class DynamicArrayExample {
 
 		myDynamicArray.delete("A");
 		myDynamicArray.delete("B");
-		myDynamicArray.delete("C");
+		myDynamicArray.delete("C ");
 
 		System.out.println("Is empty? " + myDynamicArray.isEmpty());
 		System.out.println(myDynamicArray.capacity);
