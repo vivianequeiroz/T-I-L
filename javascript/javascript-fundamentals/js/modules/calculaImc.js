@@ -5,6 +5,9 @@ export function validaPesoEAltura() {
   let pesoValido = true;
   let alturaValida = true;
 
+  const pesoMaximo = 500;
+  const alturaMaxima = 2.5;
+
   const mensagemPesoInvalido = "Peso inválido!";
   const mensagemAlturaInvalida = "Altura inválida!";
 
@@ -21,13 +24,13 @@ export function validaPesoEAltura() {
 
     let imc = paciente.querySelector(".info-imc");
 
-    if (pesoPaciente > 600) {
+    if (pesoPaciente > pesoMaximo) {
       console.log(mensagemPesoInvalido);
       pesoValido = false;
       imc.textContent = mensagemPesoInvalido;
     }
 
-    if (alturaPaciente > 2.5) {
+    if (alturaPaciente > alturaMaxima) {
       console.log(mensagemAlturaInvalida);
       alturaValida = false;
       imc.textContent = mensagemAlturaInvalida;
