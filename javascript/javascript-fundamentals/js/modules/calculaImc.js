@@ -37,12 +37,12 @@ export function validaPesoEAltura() {
     }
 
     if (pesoValido && alturaValida) {
-      imc.textContent = calculoImc(pesoPaciente, alturaPaciente);
+      imc.textContent = calculaImc(pesoPaciente, alturaPaciente);
     }
   }
 }
 
-function calculoImc(peso, altura) {
+export function calculaImc(peso, altura) {
   let imcTotal = peso / (altura * altura);
   return imcTotal.toFixed(2);
 }
