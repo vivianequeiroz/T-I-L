@@ -29,17 +29,17 @@ export function adicionaNovoPaciente() {
     let gorduraTd = tdsTabela[3];
     let imcTd = tdsTabela[4];
 
-    nomeTd.textContent = nome;
-    pesoTd.textContent = peso;
-    alturaTd.textContent = altura;
-    gorduraTd.textContent = gordura;
-    imcTd.textContent = calculaImc(peso, altura);
+    nomeTd.textContent = paciente.nome;
+    pesoTd.textContent = paciente.peso;
+    alturaTd.textContent = paciente.altura;
+    gorduraTd.textContent = paciente.gordura;
+    imcTd.textContent = calculaImc(paciente.peso, paciente.altura);
 
     pacienteTr.appendChild(nomeTd);
     pacienteTr.appendChild(pesoTd);
     pacienteTr.appendChild(alturaTd);
     pacienteTr.appendChild(gorduraTd);
-    pacienteTr.appendChild(gorduraTd);
+    pacienteTr.appendChild(imcTd);
 
     let tabela = document.querySelector("#tabela-pacientes");
 
@@ -49,12 +49,12 @@ export function adicionaNovoPaciente() {
   function obtemDadosPaciente(form) {
     const paciente = {
       nome: form.nome.value,
-      pesoa: form.peso.value,
+      peso: form.peso.value,
       altura: form.altura.value,
       gordura: form.gordura.value,
       imc: calculaImc(form.peso.value, form.altura.value),
     };
-
+    console.log(paciente.nome);
     return paciente;
   }
 }
