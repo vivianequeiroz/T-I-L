@@ -13,37 +13,6 @@ export function adicionaNovoPaciente() {
 
     let paciente = obtemDadosPaciente(form);
     console.log(paciente);
-
-    const colunasTabela = 5;
-    const tdsTabela = [];
-
-    var pacienteTr = document.createElement("tr");
-
-    for (let i = 0; i < colunasTabela; i++) {
-      tdsTabela[i] = document.createElement("td");
-    }
-
-    let nomeTd = tdsTabela[0];
-    let pesoTd = tdsTabela[1];
-    let alturaTd = tdsTabela[2];
-    let gorduraTd = tdsTabela[3];
-    let imcTd = tdsTabela[4];
-
-    nomeTd.textContent = paciente.nome;
-    pesoTd.textContent = paciente.peso;
-    alturaTd.textContent = paciente.altura;
-    gorduraTd.textContent = paciente.gordura;
-    imcTd.textContent = calculaImc(paciente.peso, paciente.altura);
-
-    pacienteTr.appendChild(nomeTd);
-    pacienteTr.appendChild(pesoTd);
-    pacienteTr.appendChild(alturaTd);
-    pacienteTr.appendChild(gorduraTd);
-    pacienteTr.appendChild(imcTd);
-
-    let tabela = document.querySelector("#tabela-pacientes");
-
-    tabela.appendChild(pacienteTr);
   });
 
   function obtemDadosPaciente(form) {
@@ -57,4 +26,41 @@ export function adicionaNovoPaciente() {
     console.log(paciente.nome);
     return paciente;
   }
+
+  function criaNovaTr(paciente) {
+    const colunasTabela = 5;
+    const tdsTabela = [];
+
+    let pacienteTr = document.createElement("tr").classList.add("paciente");
+
+    for (let i = 0; i < colunasTabela; i++) {
+      tdsTabela[i] = document.createElement("td").classList.add("info-nome");
+    }
+
+    let nomeTd = tdsTabela[0];
+    let pesoTd = tdsTabela[1];
+    let alturaTd = tdsTabela[2];
+    let gorduraTd = tdsTabela[3];
+    let imcTd = tdsTabela[4];
+
+    nomeTd.textContent = paciente.nome;
+    pesoTd.textContent = paciente.peso;
+    alturaTd.textContent = paciente.altura;
+    gorduraTd.textContent = paciente.gordura;
+    imcTd.textContent = paciente.imc;
+
+    pacienteTr.appendChild(nomeTd);
+    pacienteTr.appendChild(pesoTd);
+    pacienteTr.appendChild(alturaTd);
+    pacienteTr.appendChild(gorduraTd);
+    pacienteTr.appendChild(imcTd);
+
+    let tabela = document.querySelector("#tabela-pacientes");
+
+    tabela.appendChild(pacienteTr);
+
+    return pacienteTr;
+  }
+
+  criaNovaTr(paciente);
 }
