@@ -6,13 +6,15 @@ export function adicionaNovoPaciente() {
 
   botaoAdicionar.addEventListener("click", function (event) {
     event.preventDefault();
-
     // let nomeForms = document.getElementById("nome");
     // let nomeNovoPaciente = nomeForms.value;
     let form = document.querySelector("#form-adiciona");
-
     let paciente = obtemDadosPaciente(form);
-    console.log(paciente);
+    let pacienteTr = montaTr(paciente);
+    let tabela = document.querySelector("#tabela-pacientes");
+    tabela.appendChild(pacienteTr);
+
+    form.reset();
   });
 
   function obtemDadosPaciente(form) {
@@ -27,27 +29,15 @@ export function adicionaNovoPaciente() {
     return paciente;
   }
 
-  function criaNovaTr(paciente) {
-    const colunasTabela = 5;
-    const tdsTabela = [];
+  function montaTr(paciente) {
+    var pacienteTr = document.createElement("tr");
+    pacienteTr.classList.add("paciente");
 
-    let pacienteTr = document.createElement("tr").classList.add("paciente");
-
-    for (let i = 0; i < colunasTabela; i++) {
-      tdsTabela[i] = document.createElement("td").classList.add("info-nome");
-    }
-
-    let nomeTd = tdsTabela[0];
-    let pesoTd = tdsTabela[1];
-    let alturaTd = tdsTabela[2];
-    let gorduraTd = tdsTabela[3];
-    let imcTd = tdsTabela[4];
-
-    nomeTd.textContent = paciente.nome;
-    pesoTd.textContent = paciente.peso;
-    alturaTd.textContent = paciente.altura;
-    gorduraTd.textContent = paciente.gordura;
-    imcTd.textContent = paciente.imc;
+    var nomeTd = montaTd(paciente.nome, "info-nome");
+    var pesoTd = montaTd(paciente.peso, "info-peso");
+    var alturaTd = montaTd(paciente.altura, "info-peso");
+    var gorduraTd = montaTd(paciente.gordura, "info-gordura");
+    var imcTd = montaTd(paciente.imc, "info-imc");
 
     pacienteTr.appendChild(nomeTd);
     pacienteTr.appendChild(pesoTd);
@@ -55,12 +45,14 @@ export function adicionaNovoPaciente() {
     pacienteTr.appendChild(gorduraTd);
     pacienteTr.appendChild(imcTd);
 
-    let tabela = document.querySelector("#tabela-pacientes");
-
-    tabela.appendChild(pacienteTr);
-
     return pacienteTr;
   }
 
-  criaNovaTr(paciente);
+  function montaTd(dadoPaciente, classe) {
+    var td = document.createElement("td");
+    td.textContent = dadoPaciente;
+    td.classList.add(classe);
+
+    return td;
+  }
 }
