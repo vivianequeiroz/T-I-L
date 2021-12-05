@@ -11,54 +11,53 @@ export function validaPesoEAltura() {
     let paciente = pacientes[contador];
 
     let peso = paciente.querySelector(".info-peso");
+    let pesoEhValido = validaPeso(peso.textContent);
     let pesoPaciente = peso.textContent;
 
-    let pesoInformadoValido = validaPeso(peso);
-    let alturaInformadaValida = validaAltura(altura);
-
     let altura = paciente.querySelector(".info-altura");
+    let alturaEhValida = validaAltura(altura.textContent);
     let alturaPaciente = altura.textContent;
 
     let imc = paciente.querySelector(".info-imc");
 
-    if (!pesoInformadoValido) {
-      console.log(mensagemPesoInvalido);
-      pesoValido = false;
+    if (!pesoEhValido) {
+      pesoEhValido = false;
       imc.textContent = mensagemPesoInvalido;
+      paciente.classList.add("paciente-invalido");
     }
 
-    if (!alturaInformadaValida) {
-      console.log(mensagemAlturaInvalida);
-      alturaValida = false;
+    if (!alturaEhValida) {
+      alturaEhValida = false;
       imc.textContent = mensagemAlturaInvalida;
+      paciente.classList.add("paciente-invalido");
     }
 
-    if (pesoValido && alturaValida) {
+    if (pesoEhValido && alturaEhValida) {
       imc.textContent = calculaImc(pesoPaciente, alturaPaciente);
     }
   }
 }
 
-function validaPeso(peso) {
+function validaPeso(pesoInformado) {
   const pesoMaximo = 500;
-  let pesoEhValido = false;
+  const pesoMinimo = 0.2;
 
-  if (peso >= 0.2 && peso < pesoMaximo) {
-    pesoEhValido = true;
-    return pesoEhValido;
+  if (pesoInformado >= pesoMinimo && pesoInformado < pesoMaximo) {
+    return true;
+  } else {
+    return false;
   }
-  return pesoEhValido;
 }
 
 function validaAltura(altura) {
   const alturaMaxima = 2.5;
-  let alturaEhValida = false;
+  const alturaMinima = 0.5;
 
-  if (altura >= 0.3 && altura < alturaMaxima) {
-    alturaEhValida = true;
-    return alturaEhValida;
+  if (altura >= alturaMinima && altura < alturaMaxima) {
+    return true;
+  } else {
+    return false;
   }
-  return alturaEhValida;
 }
 
 export function calculaImc(peso, altura) {
