@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
+import { AuthService } from './auth.service';
 
 export interface Book {
   id: number;
@@ -10,30 +11,53 @@ export interface Book {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BooksService {
   private baseUrl = environment.apiUrl;
+  private headers: HttpHeaders = this.getAuthorizationHeader();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private auth: AuthService) {}
 
   getAllBooks(): Observable<Book[]> {
-    return this.http.get<Book[]>(`${this.baseUrl}/books`);
+    const headers: HttpHeaders = this.getAuthorizationHeader();
+
+    return this.http.get<Book[]>(`${this.baseUrl}/books`, {
+      headers,
+    });
   }
 
   getBookById(bookId: number): Observable<Book> {
-    return this.http.get<Book>(`${this.baseUrl}/books/${bookId}`);
+    const headers: HttpHeaders = this.getAuthorizationHeader();
+    return this.http.get<Book>(`${this.baseUrl}/books/${bookId}`, {
+      headers,
+    });
   }
 
   createBook(book: Omit<Book, 'id'>): Observable<Book> {
-    return this.http.post<Book>(`${this.baseUrl}/books`, book);
+    const headers: HttpHeaders = this.getAuthorizationHeader();
+    return this.http.post<Book>(`${this.baseUrl}/books`, book, {
+      headers,
+    });
   }
 
   updateBook(book: Book): Observable<Book> {
-    return this.http.put<Book>(`${this.baseUrl}/books/${book.id}`, book);
+    const headers: HttpHeaders = this.getAuthorizationHeader();
+    return this.http.put<Book>(`${this.baseUrl}/books/${book.id}`, book, {
+      headers,
+    });
   }
 
   deleteBookById(bookId: number): Observable<Book> {
-    return this.http.delete<Book>(`${this.baseUrl}/books/${bookId}`);
+    const headers: HttpHeaders = this.getAuthorizationHeader();
+    return this.http.delete<Book>(`${this.baseUrl}/books/${bookId}`, {
+      headers,
+    });
+  }
+
+  private getAuthorizationHeader(): HttpHeaders {
+    return new HttpHeaders({
+      authorization: `Bearer ${this.auth.getAccessToken()}`,
+    });
   }
 }
