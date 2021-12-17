@@ -15,7 +15,6 @@ export interface Book {
 })
 export class BooksService {
   private baseUrl = environment.apiUrl;
-  private headers: HttpHeaders = this.getAuthorizationHeader();
 
   constructor(private http: HttpClient, private auth: AuthService) {}
 
