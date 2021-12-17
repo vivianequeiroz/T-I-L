@@ -41,7 +41,7 @@ Link para documentação: [Json Server Auth](https://www.npmjs.com/package/json-
 
 ## Casos de Uso
 
-- [ ] Header Manipulation
+- [✅ ] Header Manipulation
 - [ ] Loader
 - [ ] Alert (Error Handler)
 
@@ -50,7 +50,7 @@ Link para documentação: [Json Server Auth](https://www.npmjs.com/package/json-
 - Angular Reactive Forms: [Link](https://angular.io/guide/reactive-forms)
 - RxJS Operators (tap, delay, catchError, finalize): [Link](https://rxjs.dev/api/operators)
 
-## Expert Creator
+## Expert Creator - Aula ministrada pelo Experts Club da Rocketseat
 
 | [<img src="https://avatars.githubusercontent.com/u/35535982?v=4" width="75px;"/>](https://github.com/rpaivabr) |
 | :-: |
