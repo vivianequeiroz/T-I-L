@@ -6,10 +6,9 @@ import { StudentsService } from '../students.service';
 @Component({
   selector: 'app-student-edit',
   templateUrl: './student-edit.component.html',
-  styleUrls: ['./student-edit.component.css']
+  styleUrls: ['./student-edit.component.css'],
 })
 export class StudentEditComponent implements OnInit {
-
   id!: number;
   student?: Student;
 
@@ -17,7 +16,7 @@ export class StudentEditComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private studentService: StudentsService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.params.id;
@@ -25,12 +24,17 @@ export class StudentEditComponent implements OnInit {
   }
 
   onUpdate() {
-    this.studentService.update(this.id, this.student!);
-    this.router.navigateByUrl("/students");
+    this.studentService.update(this.id, this.student!).subscribe(() => {
+      this.router.navigateByUrl('/students');
+    });
   }
 
   isValid() {
-    if (!this.student!.name || !this.student!.email || !this.student!.birthday) {
+    if (
+      !this.student!.name ||
+      !this.student!.email ||
+      !this.student!.birthday
+    ) {
       return false;
     }
 
@@ -38,15 +42,13 @@ export class StudentEditComponent implements OnInit {
   }
 
   private searchStudent() {
-    const student = this.studentService.findById(this.id);
-
-    /*
-      Mini hack para alterar a referência da váriavel student com a que esta na lista do service.
-      Motivo: Como a alteração estava fazendo referência ao que esta na lista, qualquer alteração no form
-      estava alterando os valores do aluno na lista. A ideia é que essas alterações só sejam feitas quando
-      clicar no botão 'Save'.
-    */
-    this.student = JSON.parse(JSON.stringify(student));
+    this.studentService.findById(this.id).subscribe(
+      (response) => {
+        this.student = response;
+      },
+      () => {
+        this.router.navigateByUrl('/students');
+      }
+    );
   }
-
 }
