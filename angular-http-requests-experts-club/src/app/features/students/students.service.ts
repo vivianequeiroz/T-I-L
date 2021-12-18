@@ -11,19 +11,20 @@ export class StudentsService {
   constructor(private http: HttpClient) {}
 
   save(student: Student) {
-    return this.http.post<Student[]>(this.apiUrl, student);
+    return this.http.post<Student>(this.apiUrl, student);
   }
 
   update(id: number, student: Student) {
-    return this.http.put<Student[]>(`this.apiUrl/${id}`, student);
+    return this.http.put<Student>(`${this.apiUrl}/${id}`, student);
   }
 
   deleteById(id: number) {
-    return this.http.delete<void>(`this.apiUrl/${id}`);
+    console.log(`${this.apiUrl}/${id}`);
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 
   findById(id: number) {
-    return this.http.get<Student[]>(`this.apiUrl/${id}`);
+    return this.http.get<Student>(`${this.apiUrl}/${id}`);
   }
 
   findAll() {
