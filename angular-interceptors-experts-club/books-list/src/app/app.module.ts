@@ -16,6 +16,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { LoaderInterceptorService } from './services/interceptors/loader-interceptor.service';
 import { TokenInterceptorService } from './services/interceptors/token-interceptor.service';
+import { HttpErrorInterceptorService } from './services/interceptors/http-error-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,11 @@ import { TokenInterceptorService } from './services/interceptors/token-intercept
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorInterceptorService,
       multi: true,
     },
   ],
