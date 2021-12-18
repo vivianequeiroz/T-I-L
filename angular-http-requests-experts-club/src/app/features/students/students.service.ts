@@ -1,8 +1,6 @@
 import { delay, finalize } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { NgxSpinnerService } from 'ngx-spinner';
-import { ToastrService } from 'ngx-toastr';
 import { environment } from 'src/environments/environment';
 import { Student } from './student';
 
@@ -10,55 +8,27 @@ import { Student } from './student';
   providedIn: 'root',
 })
 export class StudentsService {
-  apiUrl = `${environment.apiUrl}/students123`;
-  constructor(
-    private http: HttpClient,
-    private toastr: ToastrService,
-    private spinner: NgxSpinnerService
-  ) {}
+  apiUrl = `${environment.apiUrl}/students`;
+  constructor(private http: HttpClient) {}
 
   save(student: Student) {
-    this.spinner.show();
-    return this.http.post<Student>(this.apiUrl, student).pipe(
-      delay(3000),
-      finalize(() => this.spinner.hide())
-    );
+    return this.http.post<Student>(this.apiUrl, student).pipe();
   }
 
   update(id: number, student: Student) {
-    this.spinner.show();
-    return this.http.put<Student>(`${this.apiUrl}/${id}`, student).pipe(
-      delay(3000),
-
-      finalize(() => this.spinner.hide())
-    );
+    return this.http.put<Student>(`${this.apiUrl}/${id}`, student).pipe();
   }
 
   deleteById(id: number) {
-    this.spinner.show();
     console.log(`${this.apiUrl}/${id}`);
-    return this.http.delete<void>(`${this.apiUrl}/${id}`).pipe(
-      delay(3000),
-
-      finalize(() => this.spinner.hide())
-    );
+    return this.http.delete<void>(`${this.apiUrl}/${id}`).pipe();
   }
 
   findById(id: number) {
-    this.spinner.show();
-    return this.http.get<Student>(`${this.apiUrl}/${id}`).pipe(
-      delay(3000),
-
-      finalize(() => this.spinner.hide())
-    );
+    return this.http.get<Student>(`${this.apiUrl}/${id}`).pipe();
   }
 
   findAll() {
-    this.spinner.show();
-    return this.http.get<Student[]>(this.apiUrl).pipe(
-      delay(3000),
-
-      finalize(() => this.spinner.hide())
-    );
+    return this.http.get<Student[]>(this.apiUrl).pipe();
   }
 }

@@ -44,17 +44,24 @@
     },
     {
       "id": 7,
-      "name": "Mariana",
+      "name": "Marianah",
       "email": "mariana@gmail.com",
       "birthday": "2000-11-06",
       "createdAt": 1633923723674
     },
     {
-      "id": 8,
-      "name": "Bernardo",
-      "email": "bernardo@gmail.com",
-      "birthday": "1995-02-27",
-      "createdAt": 1633923723674
+      "name": "João Vitor",
+      "email": "jv@gmail.com",
+      "birthday": "2000-08-10",
+      "createdAt": 1639859079062,
+      "id": 8
+    },
+    {
+      "name": "João Vitor",
+      "email": "jv@gmail.com",
+      "birthday": "2000-08-10",
+      "createdAt": 1639859767350,
+      "id": 9
     }
   ]
 }
