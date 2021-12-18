@@ -15,6 +15,7 @@ import { BookListComponent } from './components/book-list/book-list.component';
 import { HeaderComponent } from './components/header/header.component';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { LoaderInterceptorService } from './services/interceptors/loader-interceptor.service';
+import { TokenInterceptorService } from './services/interceptors/token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,11 @@ import { LoaderInterceptorService } from './services/interceptors/loader-interce
     {
       provide: HTTP_INTERCEPTORS,
       useClass: LoaderInterceptorService,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
       multi: true,
     },
   ],
