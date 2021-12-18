@@ -42,8 +42,8 @@ Link para documentação: [Json Server Auth](https://www.npmjs.com/package/json-
 ## Casos de Uso
 
 - [✅ ] Header Manipulation
-- [ ] Loader
-- [ ] Alert (Error Handler)
+- [✅ ] Loader
+- [✅ ] Alert (Error Handler)
 
 ## Links Adicionais
 
