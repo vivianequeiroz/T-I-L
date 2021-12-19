@@ -20,13 +20,20 @@ export class StudentEditComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.id = this.activatedRoute.snapshot.params.id;
-    this.searchStudent();
+    const { source, lat, lng } = this.activatedRoute.snapshot.queryParams;
 
-    const { source } = this.activatedRoute.snapshot.queryParams;
+    this.id = this.activatedRoute.snapshot.params.id;
+
     if (source && source === 'map') {
       this.redirectPath = '/students/map';
     }
+
+    this.searchStudent().then(() => {
+      if (lat && lng) {
+        this.student!.lat = parseFloat(lat);
+        this.student!.lng = parseFloat(lng);
+      }
+    });
   }
 
   onUpdate() {
