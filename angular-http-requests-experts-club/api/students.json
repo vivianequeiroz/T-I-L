@@ -62,6 +62,13 @@
       "birthday": "2000-08-10",
       "createdAt": 1639859767350,
       "id": 9
+    },
+    {
+      "name": "Viviane",
+      "email": "vivs@gmail.com",
+      "birthday": "2000-02-15",
+      "createdAt": 1639864435138,
+      "id": 10
     }
   ]
 }

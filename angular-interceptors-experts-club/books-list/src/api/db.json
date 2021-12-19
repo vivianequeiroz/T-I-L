@@ -1,11 +1,19 @@
 {
-  "users": [],
+  "users": [
+    {
+      "email": "vivianedsqueiroz@gmail.com",
+      "password": "$2a$10$sb8RvM0jy3FtkRBp2WPqOOtlyJ/coHSA0TUZuXfjBKxoEimgUAAMq",
+      "firstname": "Viviane",
+      "age": 21,
+      "id": 1
+    }
+  ],
   "books": [
     {
       "title": "Clean Code: A Handbook of Agile Software Craftsmanship",
       "author": "Robert C. Martin",
       "id": 1
-    },    
+    },
     {
       "title": "Clean Architecture: A Craftsman's Guide to Software Structure and Design",
       "author": "Robert C. Martin",
