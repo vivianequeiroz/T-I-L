@@ -17,5 +17,6 @@
   ><map-marker
     *ngFor="let marker of markers"
     [options]="marker.options"
+    (mapClick)="onMarkerClick(marker.student)"
   ></map-marker
 ></google-map>

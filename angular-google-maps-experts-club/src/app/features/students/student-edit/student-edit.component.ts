@@ -6,23 +6,27 @@ import { StudentsService } from '../students.service';
 @Component({
   selector: 'app-student-edit',
   templateUrl: './student-edit.component.html',
-  styleUrls: ['./student-edit.component.css']
+  styleUrls: ['./student-edit.component.css'],
 })
 export class StudentEditComponent implements OnInit {
-
   id!: number;
   student?: Student;
-  redirectPath = "/students";
+  redirectPath = '/students';
 
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private studentService: StudentsService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.params.id;
     this.searchStudent();
+
+    const { source } = this.activatedRoute.snapshot.queryParams;
+    if (source && source === 'map') {
+      this.redirectPath = '/students/map';
+    }
   }
 
   onUpdate() {
@@ -32,7 +36,11 @@ export class StudentEditComponent implements OnInit {
   }
 
   isValid() {
-    if (!this.student!.name || !this.student!.email || !this.student!.birthday) {
+    if (
+      !this.student!.name ||
+      !this.student!.email ||
+      !this.student!.birthday
+    ) {
       return false;
     }
 
@@ -40,12 +48,14 @@ export class StudentEditComponent implements OnInit {
   }
 
   private async searchStudent() {
-    return this.studentService.findById(this.id).toPromise()
-      .then(response => {
+    return this.studentService
+      .findById(this.id)
+      .toPromise()
+      .then((response) => {
         this.student = response;
-      }).catch(() => {
-        this.router.navigateByUrl("/students");
+      })
+      .catch(() => {
+        this.router.navigateByUrl('/students');
       });
   }
-
 }

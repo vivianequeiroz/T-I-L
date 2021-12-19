@@ -47,6 +47,13 @@ export class StudentMapComponent implements OnInit {
     });
   }
 
+  onMarkerClick(student: Student) {
+    this.router.navigate(['/students', student.id], {
+      queryParams: {
+        source: 'map',
+      },
+    });
+  }
   private loadMap() {
     this.studentService.findAll().subscribe((response) => {
       response.forEach((student) => {
