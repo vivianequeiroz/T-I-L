@@ -89,6 +89,10 @@ export class StudentMapComponent implements OnInit {
       options: {
         draggable: true,
         animation: google.maps.Animation.DROP,
+        position: {
+          lat: student.lat || this.mapCenter.lat,
+          lng: student.lng || this.mapCenter.lng,
+        },
         icon: hasLatAndLng
           ? undefined
           : {
@@ -99,10 +103,6 @@ export class StudentMapComponent implements OnInit {
           text: student.name,
           fontWeight: 'bold',
           color: hasLatAndLng ? '#000000' : '#FFFFFF',
-        },
-        position: {
-          lat: student.lat || this.mapCenter.lat,
-          lng: student.lng || this.mapCenter.lat,
         },
       },
     };
