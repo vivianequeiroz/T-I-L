@@ -9,4 +9,9 @@
   </button>
 </div>
 
-<google-map width="100%" height="650px" [options]="mapOptions"></google-map>
+<google-map width="100%" height="650px" [options]="mapOptions"
+  ><map-marker
+    *ngFor="let marker of markers"
+    [options]="marker.options"
+  ></map-marker
+></google-map>
