@@ -2,6 +2,7 @@ import { StudentsService } from './../students.service';
 import { Component, OnInit } from '@angular/core';
 import { Marker } from './Marker';
 import { Student } from '../student';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-student-map',
@@ -26,10 +27,24 @@ export class StudentMapComponent implements OnInit {
     center: this.mapCenter,
   };
 
-  constructor(private studentService: StudentsService) {}
+  constructor(
+    private studentService: StudentsService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.loadMap();
+  }
+
+  onMapClick(event: google.maps.MapMouseEvent) {
+    //console.log(event.latLng.toJSON());
+    this.router.navigate(['/students/new'], {
+      queryParams: {
+        source: 'map',
+        lat: event.latLng.lat(),
+        lng: event.latLng.lng(),
+      },
+    });
   }
 
   private loadMap() {

@@ -9,7 +9,11 @@
   </button>
 </div>
 
-<google-map width="100%" height="650px" [options]="mapOptions"
+<google-map
+  width="100%"
+  height="650px"
+  [options]="mapOptions"
+  (mapClick)="onMapClick($event)"
   ><map-marker
     *ngFor="let marker of markers"
     [options]="marker.options"
