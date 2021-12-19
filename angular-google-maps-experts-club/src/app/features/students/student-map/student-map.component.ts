@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Marker } from './Marker';
 import { Student } from '../student';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-student-map',
@@ -28,12 +29,20 @@ export class StudentMapComponent implements OnInit {
   };
 
   constructor(
-    private studentService: StudentsService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService,
+    private studentService: StudentsService
   ) {}
 
   ngOnInit(): void {
     this.loadMap();
+  }
+
+  onNewStudentClick() {
+    this.toastr.info(
+      'Click on map location to create a new student',
+      'New student information'
+    );
   }
 
   onMapClick(event: google.maps.MapMouseEvent) {
