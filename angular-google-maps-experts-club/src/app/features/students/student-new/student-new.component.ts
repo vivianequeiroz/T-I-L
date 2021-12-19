@@ -6,20 +6,29 @@ import { StudentsService } from '../students.service';
 @Component({
   selector: 'app-student-new',
   templateUrl: './student-new.component.html',
-  styleUrls: ['./student-new.component.css']
+  styleUrls: ['./student-new.component.css'],
 })
 export class StudentNewComponent implements OnInit {
-
-  redirectPath = "/students";
+  redirectPath = '/students';
   student: Student = new Student();
 
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private studentService: StudentsService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
+    const { source, lat, lng } = this.activatedRoute.snapshot.queryParams;
+
+    if (source && source === 'map') {
+      this.redirectPath = '/students/map';
+    }
+
+    if (lat && lng) {
+      this.student.lat = parseFloat(lat);
+      this.student.lng = parseFloat(lng);
+    }
   }
 
   onSubmit() {
@@ -35,5 +44,4 @@ export class StudentNewComponent implements OnInit {
 
     return true;
   }
-
 }
