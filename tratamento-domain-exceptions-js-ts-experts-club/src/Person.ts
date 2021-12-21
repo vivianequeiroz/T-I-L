@@ -13,11 +13,14 @@ export interface Person {
 
 export const createPerson = (personValues: PersonValues): Person => {
 	const { age: ageValue, nickname: nicknameValue } = personValues;
-	const age = createAge(ageValue);
+	const ageResult = createAge(ageValue);
+	if (ageResult.isFailure()) {
+		throw "";
+	}
 	const nickname = createNickname(nicknameValue);
 
 	return {
-		age,
+		age: ageResult.value as number,
 		nickname,
 	};
 };
