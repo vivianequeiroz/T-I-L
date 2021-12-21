@@ -5,22 +5,52 @@ import {
 	createFailureResult,
 } from "./DomainResult";
 
-interface InvalidAge extends DomainError {
-	name: "Invalid age";
-	message: "Age must be a positive and integer number";
+type InvalidAgeStates = NegativeAge | NonIntegerAge;
+
+interface NegativeAge extends DomainError {
+	name: "Negative age";
 }
 
-const createInvalidAge = (ageValue: number): InvalidAge => ({
+interface NonIntegerAge extends DomainError {
+	name: "Not integer age";
+}
+
+interface InvalidAge extends DomainError {
+	name: "Invalid age";
+	invalidStates: InvalidAgeStates[];
+}
+
+const createNegativeAge = (ageValue: number): NegativeAge => ({
+	name: "Negative age",
+	message: `Age must be a positive. Received ${ageValue}`,
+});
+
+const createNonIntegerAge = (ageValue: number): NonIntegerAge => ({
+	name: "Not integer age",
+	message: `Age must be an integer number. Received ${ageValue}`,
+});
+
+const createInvalidAge = (invalidStates: InvalidAgeStates[]): InvalidAge => ({
 	name: "Invalid age",
-	message: "Age must be a positive and integer number",
+	message: "Invalid age",
+	invalidStates: invalidStates,
 });
 
 export const createAge = (ageValue): Either<number, InvalidAge> => {
-	if (ageValue < 0 || !Number.isInteger(ageValue)) {
-		//exceções esperadas -> consideradas nas regras de negócios, que previnem estados ilegais
-		//- Trabalhar com o objetivo nativo Error ou suas implementações mais específicas tal como TypeError
-		// throw new TypeError();
-		return createFailureResult(createInvalidAge(ageValue));
+	const invalidAgeStates: InvalidAgeStates[] = [];
+	if (ageValue < 0) {
+		// return createFailureResult<number, NegativeAge>(
+		invalidAgeStates.push(createNegativeAge(ageValue));
+	} else if (!Number.isInteger(ageValue)) {
+		// return createFailureResult<number, NonIntegerAge>(
+		invalidAgeStates.push(createNonIntegerAge(ageValue));
 	}
+
+	if (invalidAgeStates.length) {
+		return createFailureResult<number, InvalidAge>(
+			createInvalidAge(invalidAgeStates)
+		);
+	}
+
 	return createSuccessResult<number, InvalidAge>(ageValue);
 };
