@@ -24,10 +24,12 @@ export function adicionaNovoPaciente() {
     tabela.appendChild(pacienteTr);
 
     form.reset();
+    document.querySelector("#mensagens-erro").innerHTML = "";
   });
 
   function exibeMensagensDeErros(erros) {
     let ul = document.querySelector("#mensagens-erro");
+    ul.innerHTML = "";
     erros.forEach(function (erro) {
       let li = document.createElement("li");
       li.textContent = erro;
@@ -80,6 +82,16 @@ export function adicionaNovoPaciente() {
     if (!validaPeso(paciente.peso)) erros.push("Peso inválido!");
 
     if (!validaAltura(paciente.altura)) erros.push("Altura inválida!");
+
+    if (paciente.nome.length == 0) erros.push("Nome precisa ser informado!");
+
+    if (paciente.peso.length === 0) erros.push("Peso precisa ser informado!");
+
+    if (paciente.gordura.length === 0)
+      erros.push("Gordura precisa ser informada!");
+
+    if (paciente.altura.length === 0)
+      erros.push("Altura precisa ser informada!");
 
     return erros;
   }
