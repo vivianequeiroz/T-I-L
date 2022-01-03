@@ -1,4 +1,4 @@
-import { calculaImc, validaPeso } from "./calculaImc.js";
+import { calculaImc, validaPeso, validaAltura } from "./calculaImc.js";
 
 export function adicionaNovoPaciente() {
   const botaoAdicionar = document.querySelector("#adicionar-paciente");
@@ -12,10 +12,11 @@ export function adicionaNovoPaciente() {
     let paciente = obtemDadosPaciente(form);
     let pacienteTr = montaTr(paciente);
 
-    let erro = validaPaciente(paciente);
+    let erros = validaPaciente(paciente);
 
-    if (erro.length > 0) {
-      console.log("Paciente inválido!");
+    console.log(erros);
+    if (erros.length > 0) {
+      exibeMensagensDeErros(erros);
       return;
     }
 
@@ -24,6 +25,15 @@ export function adicionaNovoPaciente() {
 
     form.reset();
   });
+
+  function exibeMensagensDeErros(erros) {
+    let ul = document.querySelector("#mensagens-erro");
+    erros.forEach(function (erro) {
+      let li = document.createElement("li");
+      li.textContent = erro;
+      ul.appendChild(li);
+    });
+  }
 
   function obtemDadosPaciente(form) {
     const paciente = {
@@ -65,10 +75,12 @@ export function adicionaNovoPaciente() {
   }
 
   function validaPaciente(paciente) {
-    if (validaPeso(paciente.peso)) {
-      return "";
-    } else {
-      return "Peso inválido!";
-    }
+    let erros = [];
+
+    if (!validaPeso(paciente.peso)) erros.push("Peso inválido!");
+
+    if (!validaAltura(paciente.altura)) erros.push("Altura inválida!");
+
+    return erros;
   }
 }
