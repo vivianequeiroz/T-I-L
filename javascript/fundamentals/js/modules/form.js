@@ -1,4 +1,4 @@
-import { calculaImc } from "./calculaImc.js";
+import { calculaImc, validaPeso } from "./calculaImc.js";
 
 export function adicionaNovoPaciente() {
   const botaoAdicionar = document.querySelector("#adicionar-paciente");
@@ -11,6 +11,12 @@ export function adicionaNovoPaciente() {
     let form = document.querySelector("#form-adiciona");
     let paciente = obtemDadosPaciente(form);
     let pacienteTr = montaTr(paciente);
+
+    if (!validaPaciente(paciente)) {
+      console.log("Paciente inválido!");
+      return;
+    }
+
     let tabela = document.querySelector("#tabela-pacientes");
     tabela.appendChild(pacienteTr);
 
@@ -54,5 +60,13 @@ export function adicionaNovoPaciente() {
     td.classList.add(classe);
 
     return td;
+  }
+
+  function validaPaciente(paciente) {
+    if (validaPeso(paciente.peso)) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }

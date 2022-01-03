@@ -38,7 +38,7 @@ export function validaPesoEAltura() {
   }
 }
 
-function validaPeso(pesoInformado) {
+export function validaPeso(pesoInformado) {
   const pesoMaximo = 500;
   const pesoMinimo = 0.2;
 
@@ -49,7 +49,7 @@ function validaPeso(pesoInformado) {
   }
 }
 
-function validaAltura(altura) {
+export function validaAltura(altura) {
   const alturaMaxima = 2.5;
   const alturaMinima = 0.5;
 
