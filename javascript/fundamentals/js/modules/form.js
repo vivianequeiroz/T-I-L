@@ -12,7 +12,9 @@ export function adicionaNovoPaciente() {
     let paciente = obtemDadosPaciente(form);
     let pacienteTr = montaTr(paciente);
 
-    if (!validaPaciente(paciente)) {
+    let erro = validaPaciente(paciente);
+
+    if (erro.length > 0) {
       console.log("Paciente inválido!");
       return;
     }
@@ -64,9 +66,9 @@ export function adicionaNovoPaciente() {
 
   function validaPaciente(paciente) {
     if (validaPeso(paciente.peso)) {
-      return true;
+      return "";
     } else {
-      return false;
+      return "Peso inválido!";
     }
   }
 }
