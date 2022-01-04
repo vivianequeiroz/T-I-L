@@ -1,12 +1,13 @@
 export function deletarPaciente() {
-  let pacientes = document.querySelectorAll(".paciente");
+  let tabela = document.querySelector("#tabela-pacientes");
 
-  pacientes.forEach(function (paciente) {
-    paciente.addEventListener("click", function () {
-      console.log("Delete paciente clicked");
-      this.remove();
-    });
+  tabela.addEventListener("click", function () {
+    let alvoEvento = event.target;
+    let contemIconeDeletar = alvoEvento.classList.contains("icone-deletar");
+
+    if (contemIconeDeletar) {
+      let linhaPaciente = alvoEvento.closest(".paciente");
+      linhaPaciente.remove();
+    }
   });
-
-  console.log("teste da deletarPaciente");
 }
