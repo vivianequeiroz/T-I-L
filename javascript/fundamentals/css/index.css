@@ -139,3 +139,10 @@ button:disabled {
 #mensagens-erro {
   color: tomato;
 }
+
+.botao-deletar {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0 auto;
+}
