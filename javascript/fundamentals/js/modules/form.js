@@ -50,14 +50,14 @@ export function adicionaNovoPaciente() {
   }
 
   function montaTr(paciente) {
-    var pacienteTr = document.createElement("tr");
+    let pacienteTr = document.createElement("tr");
     pacienteTr.classList.add("paciente");
 
-    var nomeTd = montaTd(paciente.nome, "info-nome");
-    var pesoTd = montaTd(paciente.peso, "info-peso");
-    var alturaTd = montaTd(paciente.altura, "info-peso");
-    var gorduraTd = montaTd(paciente.gordura, "info-gordura");
-    var imcTd = montaTd(paciente.imc, "info-imc");
+    let nomeTd = montaTd(paciente.nome, "info-nome");
+    let pesoTd = montaTd(paciente.peso, "info-peso");
+    let alturaTd = montaTd(paciente.altura, "info-peso");
+    let gorduraTd = montaTd(paciente.gordura, "info-gordura");
+    let imcTd = montaTd(paciente.imc, "info-imc");
 
     pacienteTr.appendChild(nomeTd);
     pacienteTr.appendChild(pesoTd);
@@ -69,7 +69,7 @@ export function adicionaNovoPaciente() {
   }
 
   function montaTd(dadoPaciente, classe) {
-    var td = document.createElement("td");
+    let td = document.createElement("td");
     td.textContent = dadoPaciente;
     td.classList.add(classe);
 
