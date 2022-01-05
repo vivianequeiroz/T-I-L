@@ -36,6 +36,7 @@ header .container:before {
   width: 60%;
   height: 100%;
   margin: 0 auto;
+  margin-bottom: 80px;
 }
 
 section {

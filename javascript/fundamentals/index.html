@@ -11,6 +11,7 @@
     <script type="module" src="./js/main.js"></script>
     <script type="module" src="./js/modules/form.js"></script>
     <script type="module" src="./js/modules/calculaImc.js"></script>
+    <script type="module" src="./js/modules/editaPaciente.js"></script>
     <script type="module" src="./js/modules/deletaPaciente.js"></script>
     <header>
       <div class="container">
@@ -214,6 +215,63 @@
 
         <button id="adicionar-paciente" class="botao btn-principal">
           Adicionar
+        </button>
+      </form>
+    </section>
+
+    <section class="container">
+      <h2 id="titulo-form">Editar paciente</h2>
+
+      <ul id="mensagens-erro"></ul>
+
+      <form id="form-edita">
+        <div class="">
+          <label for="nome">Nome:</label>
+          <input
+            id="nome"
+            name="nome"
+            type="text"
+            placeholder="digite o nome do seu paciente nome"
+            class="editar campo"
+            disabled
+          />
+        </div>
+        <div class="grupo">
+          <label for="peso">Peso:</label>
+          <input
+            id="peso"
+            name="peso"
+            type="text"
+            placeholder="digite o peso do seu paciente"
+            class="editar campo campo-medio peso"
+            disabled
+          />
+        </div>
+        <div class="grupo">
+          <label for="altura">Altura:</label>
+          <input
+            id="altura"
+            name="altura"
+            type="text"
+            placeholder="digite a altura do seu paciente"
+            class="editar campo campo-medio altura"
+            disabled
+          />
+        </div>
+        <div class="grupo">
+          <label for="gordura">% de Gordura:</label>
+          <input
+            id="gordura"
+            name="gordura"
+            type="text"
+            placeholder="digite a porcentagem de gordura do seu paciente"
+            class="editar campo campo-medio gordura"
+            disabled
+          />
+        </div>
+
+        <button id="editar-paciente" class="botao btn-principal" disabled>
+          Editar
         </button>
       </form>
     </section>
