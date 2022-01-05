@@ -34,9 +34,6 @@ function acessaDadosTd(tdsPaciente) {
 function adicionaDadosEmEditar(dadosObtidos) {
   let formEditar = document.querySelector("#form-edita");
   let inputsEditar = formEditar.getElementsByClassName("editar");
-  let botaoEditar = formEditar.querySelector("#editar-paciente");
-
-  habilitaCampos(inputsEditar, botaoEditar);
 
   let valoresExistentes = dadosObtidos.slice(0, 4);
 
@@ -49,6 +46,8 @@ function adicionaDadosEmEditar(dadosObtidos) {
   inputsEditar[1].value = peso;
   inputsEditar[2].value = altura;
   inputsEditar[3].value = gordura;
+
+  editarCampos();
 }
 
 function removeDadosEditar() {
@@ -63,7 +62,17 @@ function removeDadosEditar() {
   botaoEditar.disabled = true;
 }
 
-function habilitaCampos(inputs, botao) {
-  inputs.disabled = false;
-  botao.disabled = false;
+function editarCampos() {
+  let formEditar = document.querySelector("#form-edita");
+  let inputsEditar = formEditar.getElementsByClassName("editar");
+  let botaoEditar = formEditar.querySelector("#editar-paciente");
+
+  botaoEditar.disabled = false;
+
+  formEditar.addEventListener("click", function () {
+    console.log("inputs editar clicado");
+    [...inputsEditar].forEach((inputEditar) => {
+      inputEditar.disabled = false;
+    });
+  });
 }
