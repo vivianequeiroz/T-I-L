@@ -140,7 +140,8 @@ button:disabled {
   color: tomato;
 }
 
-.botao-deletar {
+.botao-deletar,
+.botao-editar {
   background-color: transparent;
   border: none;
   padding: 0;
