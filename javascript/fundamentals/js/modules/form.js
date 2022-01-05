@@ -2,7 +2,6 @@ import { calculaImc, validaPeso, validaAltura } from "./calculaImc.js";
 
 export function adicionaNovoPaciente() {
   const botaoAdicionar = document.querySelector("#adicionar-paciente");
-  console.log(botaoAdicionar);
 
   botaoAdicionar.addEventListener("click", function (event) {
     event.preventDefault();
@@ -14,7 +13,6 @@ export function adicionaNovoPaciente() {
 
     let erros = validaPaciente(paciente);
 
-    console.log(erros);
     if (erros.length > 0) {
       exibeMensagensDeErros(erros);
       return;
@@ -45,7 +43,7 @@ export function adicionaNovoPaciente() {
       gordura: form.gordura.value,
       imc: calculaImc(form.peso.value, form.altura.value),
     };
-    console.log(paciente.nome);
+
     return paciente;
   }
 
@@ -64,6 +62,8 @@ export function adicionaNovoPaciente() {
     pacienteTr.appendChild(alturaTd);
     pacienteTr.appendChild(gorduraTd);
     pacienteTr.appendChild(imcTd);
+
+    pacienteTr.appendChild(criaTdDeletar());
 
     return pacienteTr;
   }
@@ -94,5 +94,25 @@ export function adicionaNovoPaciente() {
       erros.push("Altura precisa ser informada!");
 
     return erros;
+  }
+
+  function criaTdDeletar() {
+    let iconeDeletar = document.createElement("img");
+    iconeDeletar.src =
+      "https://img.icons8.com/material-rounded/26/000000/filled-trash.png";
+    iconeDeletar.alt = "Ícone de lixeira";
+    iconeDeletar.classList.add("icone-deletar");
+
+    let botao = document.createElement("button");
+    botao.classList.add("botao-deletar");
+
+    let botaoDeletar = botao.appendChild(iconeDeletar);
+    console.log("botaoDeletar", botaoDeletar);
+
+    let tdDeletar = document.createElement("td");
+    tdDeletar.classList.add("deletar-paciente");
+    tdDeletar.appendChild(botao);
+
+    return tdDeletar;
   }
 }
