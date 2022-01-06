@@ -148,3 +148,9 @@ button:disabled {
   padding: 0;
   margin: 0 auto;
 }
+
+
+.fadeOut {
+  opacity: 0;
+  transition: .5s;
+}

@@ -7,7 +7,12 @@ export function deletarPaciente() {
 
     if (contemIconeDeletar) {
       let linhaPaciente = alvoEvento.closest(".paciente");
-      linhaPaciente.remove();
+
+      linhaPaciente.classList.add("fadeOut")
+
+      setTimeout(function() {
+        linhaPaciente.remove();
+      }, 500)
     }
   });
 }
