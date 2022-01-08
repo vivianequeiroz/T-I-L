@@ -10,7 +10,7 @@ interface Course {
   educator: string;
 }
 class CreateCourseService {
-  execute({ name, duration, educator }: Course) {
+  execute({ name, duration = 8, educator }: Course) {
     // with destructuring the arguments can be received in any order
     console.log(name, duration, educator);
   }
