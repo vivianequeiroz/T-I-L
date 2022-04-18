@@ -1,0 +1,10 @@
+There are four main spheres of Responsability in the AWS Cloud Environment:
+All of them compose the Cloud Enterprise Architect and each of them have areas dedicated to achieve the goal of its sphere.
+
+- Cloud Business Management: Program Manager and Financial Manager 
+- Cloud Infrastructure: Infrastructure Architect, represented by the Infrastructure Operations Engineer
+- Cloud Security: Security Architect, represented by Security Operations Engineer
+- Cloud Application Infrastructure: Application Architect, represented by Application Developer and DevOps Engineer
+
+Each business has the integration of a Cloud Plataform, composed by Business Applications and a Cloud Center of Excellence with a 
+Organization-Wide Services and Processes. 
