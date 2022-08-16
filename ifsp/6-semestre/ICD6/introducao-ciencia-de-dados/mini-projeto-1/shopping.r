@@ -1,3 +1,5 @@
+# Para obter os retornos e visualizações, foi utilizado o RStudioCloud juntamente ao arquivo 'shopping.csv'
+
 library(Hmisc)
 
 shoppingData <- read.csv2("shopping.csv")
