@@ -1,0 +1,8 @@
+Mini projeto 1
+1. Todos os seus mini-projetos deverão ficar disponíveis no GitHub. Use-o como repositório
+para seu portfólio.
+2. Explore os arquivos shopping e shopping2. Crie visualizações que possibilitem analisar
+as informações contidas nos dados. Faça um descritivo do resultado da visualização.
+3. Acesse o link com demos https://shiny.rstudio.com/gallery/.
+4. Estude a base survey_data. Que informações relevantes podem ser oferecidas para os
+tomadores de decisão?
