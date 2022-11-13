@@ -102,5 +102,5 @@ public class Main {
   }
 }
 
-// font:
+// resource:
 // https://www.geeksforgeeks.org/producer-consumer-solution-using-threads-java/

@@ -73,3 +73,6 @@ class ForkJoinQuicksortTask extends RecursiveAction {
     return right - left < 100000000;
   }
 }
+
+// resource:
+// http://www.java2s.com/Tutorials/Java/Java_Thread_How_to/Concurrent/Do_quick_sort_with_ForkJoinPool_and_RecursiveAction.htm
