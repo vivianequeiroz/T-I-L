@@ -1,46 +1,49 @@
-import java.lang.reflect.InvocationTargetException;
-
 public class Exceptions {
+
   public static void main(String[] args) {
-    // 1. Instantiate classes using the parameterless constructor
-    try {
-      Class<?> c = Class.forName("java.util.Date");
-      Object o = c.newInstance();
-      System.out.println(o);
-    } catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
-      e.printStackTrace();
-    }
-    // 2. Instantiate classes that use the parameterized constructor
-    try {
-      Class<?> c = Class.forName("java.util.Date");
-      Object o = c.getConstructor(long.class).newInstance(1234567890);
-      System.out.println(o);
-    } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | NoSuchMethodException
-        | java.lang.reflect.InvocationTargetException e) {
-      e.printStackTrace();
-    }
-    // 3. List Methods and Attributes of the Class
-    try {
-      Class<?> c = Class.forName("java.util.Date");
-      for (java.lang.reflect.Method m : c.getMethods()) {
-        System.out.println(m);
+
+    class MyException extends RuntimeException {
+      public MyException(String message) {
+        super(message);
       }
-      for (java.lang.reflect.Field f : c.getFields()) {
-        System.out.println(f);
+
+      public MyException(String message, Throwable cause) {
+        super(message, cause);
       }
-    } catch (ClassNotFoundException e) {
-      e.printStackTrace();
-    }
-    // 4. Change the visibility of a private method to public
-    try {
-      Class<?> c = Class.forName("java.util.Date");
-      java.lang.reflect.Method m = c.getDeclaredMethod("parse", String.class);
-      m.setAccessible(true);
-      Object o = m.invoke(null, "Wed, 12 Jun 2019 22:46:37 GMT");
-      System.out.println(o);
-    } catch (ClassNotFoundException | NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
-      e.printStackTrace();
+
+      public void throwException(String[] args) {
+        try {
+          throw new RuntimeException("Error");
+        } catch (RuntimeException e) {
+          throw new MyException("Error", e);
+        }
+      }
+
+      public void exceptionCause(String[] args) {
+        try {
+          exceptionCause(args);
+        } catch (MyException e) {
+          System.out.println(e.getCause());
+        }
+      }
+
+      public void multipleExceptions(String[] args) {
+        try {
+          throw new RuntimeException("Error");
+        } catch (RuntimeException e) {
+          System.out.println("RuntimeException");
+        } catch (Exception e) {
+          System.out.println("Exception");
+        }
+      }
+
+      public void multipleExceptionsWithOrOperator(String[] args) throws RuntimeException {
+        try {
+          throw new RuntimeException("Error");
+        } catch (Exception e) {
+          System.out.println("RuntimeException | Exception");
+        }
+      }
     }
   }
-
 }
